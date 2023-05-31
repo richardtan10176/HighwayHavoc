@@ -8,10 +8,10 @@ public class TileManager : MonoBehaviour
     public GameObject[] tilePrefabs;
 
     private Transform playerTransform;
-    private float Rspawn = 0.0f;
+    private float Rspawn = -5.0f;
     private float tileLength = 5.0f;
-
     private int amnTiles = 10;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +26,7 @@ public class TileManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerTransform.position.z > (Rspawn = amnTiles * tileLength))
+        if(playerTransform.position.z > (Rspawn - amnTiles * tileLength))
 		{
             SpawnTile();
 		}
