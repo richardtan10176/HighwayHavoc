@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,14 +6,19 @@ public class TileManager : MonoBehaviour
 
     public GameObject[] tilePrefabs;
 
+    private List<GameObject> activeTiles;
     private Transform playerTransform;
     private float Rspawn = -5.0f;
     private float tileLength = 5.0f;
     private int amnTiles = 10;
+    private float safeZone = 15.0f;
+    private int lastPrefabIndex = 0;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        activeTiles = new List<GameObject>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
         for(int i = 0; i< amnTiles; i++)
@@ -26,18 +30,43 @@ public class TileManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerTransform.position.z > (Rspawn - amnTiles * tileLength))
+        if(playerTransform.position.z - safeZone> (Rspawn - amnTiles * tileLength))
 		{
             SpawnTile();
+            DeleteTile();
 		}
     }
 
     void SpawnTile(int prefabIndex = -1)
 	{
         GameObject go;
-        go = Instantiate(tilePrefabs[0]) as GameObject;
+        go = Instantiate(tilePrefabs[RandomPrefabIndex()]) as GameObject;
         go.transform.SetParent(transform);
         go.transform.position = Vector3.forward * Rspawn;
         Rspawn += tileLength;
+        activeTiles.Add(go);
 	}
+
+    void DeleteTile()
+	{
+        Destroy(activeTiles[0]);
+        activeTiles.RemoveAt(0);
+	}
+
+    private int RandomPrefabIndex()
+	{
+        if (tilePrefabs.Length <= 1)
+		{
+            return 0;
+        }
+            
+
+        int randomIndex = lastPrefabIndex;
+
+        while (randomIndex == lastPrefabIndex) {
+            randomIndex = Random.Range(0, tilePrefabs.Length);
+		}
+        return randomIndex;
+
+    }
 }

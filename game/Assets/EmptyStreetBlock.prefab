@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4029951757362173647}
+  - component: {fileID: -7615803890688789564}
+  - component: {fileID: 8347387046374498085}
   m_Layer: 0
   m_Name: EmptyStreetBlock
   m_TagString: Untagged
@@ -34,6 +36,62 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &-7615803890688789564
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4655119746118660577}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8347387046374498085
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4655119746118660577}
+  m_Material: {fileID: 13400000, guid: 430fbe2b70886e34cabc735fd8793296, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 236b6964c04aad0409d80ab50c92d8d3, type: 3}
 --- !u!1001 &423729110988387576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -170,6 +228,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5051318550016354069, guid: 376f962e2b7b90742bcf5491f5420f45, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5051318550016354069, guid: 376f962e2b7b90742bcf5491f5420f45, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.2799997
       objectReference: {fileID: 0}
@@ -212,6 +274,14 @@ PrefabInstance:
     - target: {fileID: 5051318550016785205, guid: 376f962e2b7b90742bcf5491f5420f45, type: 3}
       propertyPath: m_Name
       value: Highway Straight 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5051318550023067029, guid: 376f962e2b7b90742bcf5491f5420f45, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 236b6964c04aad0409d80ab50c92d8d3, type: 3}
+    - target: {fileID: 5051318550023067029, guid: 376f962e2b7b90742bcf5491f5420f45, type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 376f962e2b7b90742bcf5491f5420f45, type: 3}
