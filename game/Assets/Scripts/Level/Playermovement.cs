@@ -2,29 +2,69 @@ using UnityEngine;
 
 public class Playermovement : MonoBehaviour
 {
-	public Rigidbody rb;
+	private CharacterController controller;
+	public float forwardSpeed;
+	private float speed = 10.0f;
 
-    public float forwardForce = 2000f;
-    public float sidewaysForce = 500f;
-    // Update is called once per frame
-    //We marked this as "FixedUpdate" because we are using phsyics
-    void FixedUpdate()
-    {
-        rb.AddForce(0, 0, forwardForce * Time.deltaTime); //add a forward force to z-axis and using delta time to base movement on actual time and not frames of computer
+	private Vector3 direction;
+	private int desiredlane = 1;
+	public float laneDistance = 2;
 
-		if(Input.GetKey("d"))
-        {
-            rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0,ForceMode.VelocityChange);
+	private void Start()
+	{
+		desiredlane = Random.Range(0, 3);
+		controller = GetComponent<CharacterController>();
+	}
+
+	private void Update()
+	{
+		direction.z = forwardSpeed;
+		if (Input.GetKeyDown(KeyCode.D))
+		{
+			desiredlane++;
+			if (desiredlane == 4)
+			{
+				desiredlane = 3;
+			}
 		}
-        if (Input.GetKey("a"))
-        {
-            rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
-        }
 
-        if (Input.GetKey("s"))
-        {
-            rb.AddForce(0, 0, -500 * Time.deltaTime);
-        }
+		if (Input.GetKeyDown(KeyCode.A))
+		{
+			desiredlane--;
+			if (desiredlane == -1)
+			{
+				desiredlane = 0;
+			}
+		}
 
-    }
+
+	}
+
+	private void FixedUpdate()
+	{
+
+		controller.Move((Vector3.forward * speed) * Time.deltaTime);
+
+
+		Vector3 targetPostion = transform.position.z * transform.forward + transform.position.y * transform.up;
+
+		if (desiredlane == 0)
+		{
+			targetPostion += (Vector3.left * laneDistance) * 1.8f;
+		}
+		else if (desiredlane == 1)
+		{
+			targetPostion += (Vector3.left * laneDistance) * 0.6f;
+		}
+		else if (desiredlane == 2)
+		{
+			targetPostion += (Vector3.right * laneDistance) * 0.6f;
+		}
+		else if (desiredlane == 3)
+		{
+			targetPostion += (Vector3.right * laneDistance) * 1.8f;
+		}
+		transform.position = Vector3.Lerp(transform.position, targetPostion, 80 * Time.deltaTime);
+	}
+
 }

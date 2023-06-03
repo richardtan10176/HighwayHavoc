@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4029951757362173647}
   - component: {fileID: -7615803890688789564}
   - component: {fileID: 8347387046374498085}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EmptyStreetBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,6 +147,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light_01 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6935516161256266143, guid: 6028194ff4889e34f92966fa774b224e, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6028194ff4889e34f92966fa774b224e, type: 3}
 --- !u!4 &2065847236416574003 stripped
@@ -164,6 +168,10 @@ PrefabInstance:
     - target: {fileID: 418712441457318817, guid: 41936e33f95608743a2e4dfc375d12a9, type: 3}
       propertyPath: m_Name
       value: Light_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 418712441457318817, guid: 41936e33f95608743a2e4dfc375d12a9, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8987577304701068533, guid: 41936e33f95608743a2e4dfc375d12a9, type: 3}
       propertyPath: m_RootOrder
@@ -274,6 +282,10 @@ PrefabInstance:
     - target: {fileID: 5051318550016785205, guid: 376f962e2b7b90742bcf5491f5420f45, type: 3}
       propertyPath: m_Name
       value: Highway Straight 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5051318550016785205, guid: 376f962e2b7b90742bcf5491f5420f45, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5051318550023067029, guid: 376f962e2b7b90742bcf5491f5420f45, type: 3}
       propertyPath: m_Mesh
