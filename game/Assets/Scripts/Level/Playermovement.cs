@@ -4,7 +4,8 @@ public class Playermovement : MonoBehaviour
 {
 	private CharacterController controller;
 	public float forwardSpeed;
-	private float speed = 10.0f;
+	
+	public float maxSpeed;
 
 	private Vector3 direction;
 	private int desiredlane = 1;
@@ -19,6 +20,12 @@ public class Playermovement : MonoBehaviour
 	private void Update()
 	{
 		direction.z = forwardSpeed;
+
+		if(forwardSpeed < maxSpeed)
+		{
+			forwardSpeed += 0.1f * Time.deltaTime;
+		}
+		
 		if (Input.GetKeyDown(KeyCode.D))
 		{
 			desiredlane++;
@@ -36,15 +43,14 @@ public class Playermovement : MonoBehaviour
 				desiredlane = 0;
 			}
 		}
-
-
+		
 	}
 
 	private void FixedUpdate()
 	{
 
-		controller.Move((Vector3.forward * speed) * Time.deltaTime);
 
+		controller.Move(direction * Time.deltaTime);
 
 		Vector3 targetPostion = transform.position.z * transform.forward + transform.position.y * transform.up;
 
@@ -65,6 +71,7 @@ public class Playermovement : MonoBehaviour
 			targetPostion += (Vector3.right * laneDistance) * 1.8f;
 		}
 		transform.position = Vector3.Lerp(transform.position, targetPostion, 80 * Time.deltaTime);
+		
 	}
 
 }
