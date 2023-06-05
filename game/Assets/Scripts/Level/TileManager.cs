@@ -23,7 +23,14 @@ public class TileManager : MonoBehaviour
 
         for(int i = 0; i< amnTiles; i++)
 		{
-            SpawnTile();
+            if(i == 0)
+			{
+                SpawnTile(0);
+			}
+            else
+			{
+                SpawnTile(Random.Range(0, tilePrefabs.Length));
+			}
 		}
     }
 
@@ -37,7 +44,7 @@ public class TileManager : MonoBehaviour
 		}
     }
 
-    void SpawnTile(int prefabIndex = -1)
+    void SpawnTile(int prefabIndex = 0)
 	{
         GameObject go;
         go = Instantiate(tilePrefabs[RandomPrefabIndex()]) as GameObject;
@@ -66,6 +73,7 @@ public class TileManager : MonoBehaviour
         while (randomIndex == lastPrefabIndex) {
             randomIndex = Random.Range(0, tilePrefabs.Length);
 		}
+        lastPrefabIndex = randomIndex;
         return randomIndex;
 
     }

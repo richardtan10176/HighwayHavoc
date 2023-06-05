@@ -43,35 +43,57 @@ public class Playermovement : MonoBehaviour
 				desiredlane = 0;
 			}
 		}
-		
+
+		if (SwipeManager.swipeRight)
+		{
+			desiredlane++;
+			if (desiredlane == 4)
+				desiredlane = 3;
+		}
+		if (SwipeManager.swipeLeft)
+		{
+			desiredlane--;
+			if (desiredlane == -1)
+				desiredlane = 0;
+		}
+
+
+
 	}
 
 	private void FixedUpdate()
 	{
-
-
-		controller.Move(direction * Time.deltaTime);
-
-		Vector3 targetPostion = transform.position.z * transform.forward + transform.position.y * transform.up;
+		Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
 
 		if (desiredlane == 0)
 		{
-			targetPostion += (Vector3.left * laneDistance) * 1.8f;
+			targetPosition += (Vector3.left * laneDistance) * 1.8f;
 		}
 		else if (desiredlane == 1)
 		{
-			targetPostion += (Vector3.left * laneDistance) * 0.6f;
+			targetPosition += (Vector3.left * laneDistance) * 0.6f;
 		}
 		else if (desiredlane == 2)
 		{
-			targetPostion += (Vector3.right * laneDistance) * 0.6f;
+			targetPosition += (Vector3.right * laneDistance) * 0.6f;
 		}
 		else if (desiredlane == 3)
 		{
-			targetPostion += (Vector3.right * laneDistance) * 1.8f;
+			targetPosition += (Vector3.right * laneDistance) * 1.8f;
 		}
-		transform.position = Vector3.Lerp(transform.position, targetPostion, 80 * Time.deltaTime);
-		
+
+		//transform.position = targetPosition;
+		if (transform.position != targetPosition)
+		{
+			Vector3 diff = targetPosition - transform.position;
+			Vector3 moveDir = diff.normalized * 30 * Time.deltaTime;
+			if (moveDir.sqrMagnitude < diff.magnitude)
+				controller.Move(moveDir);
+			else
+				controller.Move(diff);
+		}
+
+		controller.Move(direction * Time.deltaTime);
 	}
 
 }
