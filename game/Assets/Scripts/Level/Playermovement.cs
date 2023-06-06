@@ -11,14 +11,20 @@ public class Playermovement : MonoBehaviour
 	private int desiredlane = 1;
 	public float laneDistance = 2;
 
+	private float gravity = -9.81f;
+	[SerializeField] private float gravityMulti = 3.0f;
+	private float velocity;
 	private void Start()
 	{
 		desiredlane = Random.Range(0, 3);
 		controller = GetComponent<CharacterController>();
+		Invoke("Update", 5.0f);
+		Invoke("FixedUpdate", 5.0f);
 	}
 
 	private void Update()
 	{
+		ApplyGravity();
 		direction.z = forwardSpeed;
 
 		if(forwardSpeed < maxSpeed)
@@ -94,6 +100,20 @@ public class Playermovement : MonoBehaviour
 		}
 
 		controller.Move(direction * Time.deltaTime);
+	}
+
+	private void ApplyGravity()
+	{
+		if (controller.isGrounded && velocity < 0.0f) 
+		{
+			velocity = -1.0f;
+		}
+		else
+		{
+			velocity = gravity + gravityMulti * Time.deltaTime;
+		}
+		
+		direction.y = velocity;
 	}
 
 }

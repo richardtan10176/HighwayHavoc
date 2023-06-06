@@ -496,7 +496,7 @@ Rigidbody:
   m_Drag: 1
   m_AngularDrag: 0
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
@@ -516,13 +516,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2.25
+  m_Height: 1.43
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 1}
 --- !u!114 &1516622748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,6 +538,19 @@ MonoBehaviour:
   forwardSpeed: 5
   maxSpeed: 20
   laneDistance: 2.15
+  gravityMulti: 3
+--- !u!114 &1516622749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516622740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76bcb384d55a1db4aa2636b133fb5d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1746105187
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,6 +584,16 @@ MonoBehaviour:
   - {fileID: 4655119746118660577, guid: c40566bc6aeff0a408ad9c7e8bed919e, type: 3}
   - {fileID: 4655119746118660577, guid: 50b798897fe4897469e67dd4d2049683, type: 3}
   - {fileID: 4655119746118660577, guid: 72ff961e2b9323e4185922fb0dd4529a, type: 3}
+  - {fileID: 4655119746118660577, guid: 7493c790015d7f4489654b7cae382d02, type: 3}
+  - {fileID: 4655119746118660577, guid: 7493c790015d7f4489654b7cae382d02, type: 3}
+  - {fileID: 4655119746118660577, guid: 2627cf328c6b86941ac3869ac868d7be, type: 3}
+  - {fileID: 4655119746118660577, guid: ba008cee33122de4e9d7054a5af1a23f, type: 3}
+  - {fileID: 4655119746118660577, guid: c40566bc6aeff0a408ad9c7e8bed919e, type: 3}
+  - {fileID: 4655119746118660577, guid: 50b798897fe4897469e67dd4d2049683, type: 3}
+  - {fileID: 4655119746118660577, guid: c6e14d4ed7d15b44190c5d1d9e196085, type: 3}
+  - {fileID: 4655119746118660577, guid: 649ed2de1f78ba149b5472250da770c8, type: 3}
+  - {fileID: 4655119746118660577, guid: 72ff961e2b9323e4185922fb0dd4529a, type: 3}
+  - {fileID: 4655119746118660577, guid: ecc9a3c3d7039284c925f28254a813e2, type: 3}
 --- !u!4 &1746105189
 Transform:
   m_ObjectHideFlags: 0

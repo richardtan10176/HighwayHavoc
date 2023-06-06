@@ -18,15 +18,21 @@ public class TileManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+    
+
         activeTiles = new List<GameObject>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
-        for(int i = 0; i< amnTiles; i++)
+       
+
+        for (int i = 0; i< amnTiles; i++)
 		{
             if(i == 0)
 			{
                 SpawnTile(0);
-			}
+                SpawnTile(0);
+                SpawnTile(0);
+            }
             else
 			{
                 SpawnTile(Random.Range(0, tilePrefabs.Length));
