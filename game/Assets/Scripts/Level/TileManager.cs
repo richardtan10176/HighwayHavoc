@@ -18,24 +18,25 @@ public class TileManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    
-
+     
         activeTiles = new List<GameObject>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
-       
+
+
 
         for (int i = 0; i< amnTiles; i++)
 		{
-            if(i == 0)
+            if(i < 2)
 			{
+                SpawnTile(0);
                 SpawnTile(0);
                 SpawnTile(0);
                 SpawnTile(0);
             }
             else
 			{
-                SpawnTile(Random.Range(0, tilePrefabs.Length));
+                SpawnTile();
 			}
 		}
     }
@@ -50,10 +51,17 @@ public class TileManager : MonoBehaviour
 		}
     }
 
-    void SpawnTile(int prefabIndex = 0)
+    void SpawnTile(int prefabIndex = -1)
 	{
         GameObject go;
-        go = Instantiate(tilePrefabs[RandomPrefabIndex()]) as GameObject;
+        if (prefabIndex == -1)
+        {
+            go = Instantiate(tilePrefabs[RandomPrefabIndex()]) as GameObject;
+        }
+        else
+		{
+            go = Instantiate(tilePrefabs[prefabIndex]) as GameObject;
+		}
         go.transform.SetParent(transform);
         go.transform.position = Vector3.forward * Rspawn;
         Rspawn += tileLength;
