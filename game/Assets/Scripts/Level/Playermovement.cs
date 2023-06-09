@@ -116,4 +116,13 @@ public class Playermovement : MonoBehaviour
 		direction.y = velocity;
 	}
 
+	private void OnControllerColliderHit(ControllerColliderHit hit)
+	{
+		if(hit.transform.tag == "Obstacle")
+		{
+			Debug.Log("Hit");
+			Time.timeScale = 0; // default value is 1
+		}
+	}
+
 }
