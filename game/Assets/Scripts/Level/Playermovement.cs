@@ -4,6 +4,7 @@ public class Playermovement : MonoBehaviour
 {
 	private CharacterController controller;
 	public float forwardSpeed;
+	public bool playerMove = true;
 	
 	public float maxSpeed;
 
@@ -14,8 +15,14 @@ public class Playermovement : MonoBehaviour
 	private float gravity = -9.81f;
 	[SerializeField] private float gravityMulti = 3.0f;
 	private float velocity;
+
+	public ParticleSystem collisionparticleSystem;
+	
+
 	private void Start()
 	{
+
+
 		desiredlane = Random.Range(0, 3);
 		controller = GetComponent<CharacterController>();
 		Invoke("Update", 5.0f);
@@ -26,42 +33,45 @@ public class Playermovement : MonoBehaviour
 	{
 		ApplyGravity();
 		direction.z = forwardSpeed;
-
-		if(forwardSpeed < maxSpeed)
+		if(playerMove == true)
 		{
-			forwardSpeed += 0.1f * Time.deltaTime;
-		}
-		
-		if (Input.GetKeyDown(KeyCode.D))
-		{
-			desiredlane++;
-			if (desiredlane == 4)
+			if (forwardSpeed < maxSpeed)
 			{
-				desiredlane = 3;
+				forwardSpeed += 0.1f * Time.deltaTime;
+			}
+
+			if (Input.GetKeyDown(KeyCode.D))
+			{
+				desiredlane++;
+				if (desiredlane == 4)
+				{
+					desiredlane = 3;
+				}
+			}
+
+			if (Input.GetKeyDown(KeyCode.A))
+			{
+				desiredlane--;
+				if (desiredlane == -1)
+				{
+					desiredlane = 0;
+				}
+			}
+
+			if (SwipeManager.swipeRight)
+			{
+				desiredlane++;
+				if (desiredlane == 4)
+					desiredlane = 3;
+			}
+			if (SwipeManager.swipeLeft)
+			{
+				desiredlane--;
+				if (desiredlane == -1)
+					desiredlane = 0;
 			}
 		}
 
-		if (Input.GetKeyDown(KeyCode.A))
-		{
-			desiredlane--;
-			if (desiredlane == -1)
-			{
-				desiredlane = 0;
-			}
-		}
-
-		if (SwipeManager.swipeRight)
-		{
-			desiredlane++;
-			if (desiredlane == 4)
-				desiredlane = 3;
-		}
-		if (SwipeManager.swipeLeft)
-		{
-			desiredlane--;
-			if (desiredlane == -1)
-				desiredlane = 0;
-		}
 
 
 
@@ -118,10 +128,15 @@ public class Playermovement : MonoBehaviour
 
 	private void OnControllerColliderHit(ControllerColliderHit hit)
 	{
-		if(hit.transform.tag == "Obstacle")
+
+		
+
+		if (hit.transform.tag == "Obstacle")
 		{
 			Debug.Log("Hit");
-			Time.timeScale = 0; // default value is 1
+			playerMove = false;
+			forwardSpeed = 0;
+
 		}
 	}
 
