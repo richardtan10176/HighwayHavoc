@@ -16,7 +16,7 @@ public class Playermovement : MonoBehaviour
 	[SerializeField] private float gravityMulti = 3.0f;
 	private float velocity;
 
-	public ParticleSystem collisionparticleSystem;
+	[SerializeField] GameObject particle;
 	
 
 	private void Start()
@@ -136,8 +136,15 @@ public class Playermovement : MonoBehaviour
 			Debug.Log("Hit");
 			playerMove = false;
 			forwardSpeed = 0;
+			Invoke("ParticleSpawn", 1);
+			
 
 		}
+	}
+
+	private void ParticleSpawn()
+	{
+		particle.SetActive(true);
 	}
 
 }
