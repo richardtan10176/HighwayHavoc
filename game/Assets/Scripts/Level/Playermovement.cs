@@ -17,16 +17,15 @@ public class Playermovement : MonoBehaviour
 	private float velocity;
 
 	[SerializeField] GameObject particle;
-	
+
+	public static int NumOfCoins;
 
 	private void Start()
 	{
-
+		NumOfCoins = 0;
 
 		desiredlane = Random.Range(0, 3);
 		controller = GetComponent<CharacterController>();
-		Invoke("Update", 5.0f);
-		Invoke("FixedUpdate", 5.0f);
 	}
 
 	private void Update()
@@ -126,19 +125,14 @@ public class Playermovement : MonoBehaviour
 		direction.y = velocity;
 	}
 
-	private void OnControllerColliderHit(ControllerColliderHit hit)
+	private void OnTriggerEnter(Collider other)
 	{
-
-		
-
-		if (hit.transform.tag == "Obstacle")
+		if (other.transform.tag.Equals("Obstacle"))
 		{
 			Debug.Log("Hit");
 			playerMove = false;
 			forwardSpeed = 0;
 			Invoke("ParticleSpawn", 1);
-			
-
 		}
 	}
 

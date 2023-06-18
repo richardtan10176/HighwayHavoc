@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5006815510171553485}
   - component: {fileID: 6872921693464731779}
   - component: {fileID: 828993743667909667}
-  - component: {fileID: 247392306530620985}
   m_Layer: 0
   m_Name: Car_03
   m_TagString: Untagged
@@ -84,20 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &247392306530620985
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865130301650675254}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: ec22f6907b621d244b0c3a0bc8e7448e, type: 3}
 --- !u!1 &3049773496195451987
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,7 +501,7 @@ Transform:
   m_GameObject: {fileID: 7763715469869633227}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -13.73, y: -0.36, z: -9.8501625}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7855787132969068886}
@@ -535,8 +520,8 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7763715469869633227}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.2462692, y: 1.5904101, z: 3.6948586}
-  m_Center: {x: -0.03737259, y: 0.78355867, z: -0.099313736}
+  m_Size: {x: 2.2462692, y: 1.6088724, z: 3.6948586}
+  m_Center: {x: -0.03737259, y: 0.77432775, z: -0.099313736}
