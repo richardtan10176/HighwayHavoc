@@ -28,7 +28,10 @@ public class StoreMenuController : MonoBehaviour
 
 
     }
-    void TaskOnClick() { }
+    void TaskOnClick()
+    { 
+    
+    }
     // Update is called once per frame
     void Update()
     {
