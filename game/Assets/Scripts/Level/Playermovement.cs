@@ -129,9 +129,11 @@ public class Playermovement : MonoBehaviour
 	{
 		if (other.transform.tag.Equals("Obstacle"))
 		{
-			Debug.Log("Hit");
+			Time.timeScale = 0;
 			playerMove = false;
+			Time.timeScale = 1;
 			forwardSpeed = 0;
+			Debug.Log("Hit");
 			Invoke("ParticleSpawn", 1);
 		}
 	}
