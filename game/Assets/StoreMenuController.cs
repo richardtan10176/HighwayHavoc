@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class StoreMenuController : MonoBehaviour
 {
-    public Button button1, button2, button3, button4, button5, button6, button7, button8, button9;
+    public Button button1, button2, button3, button4, button5, button6, button7, button8;
     static public int userGearsAmount;
     static public int use;
     public static GameObject CarStore, gemStore;
@@ -24,7 +24,6 @@ public class StoreMenuController : MonoBehaviour
         button6.onClick.AddListener(TaskOnClick);
         button7.onClick.AddListener(TaskOnClick);
         button8.onClick.AddListener(TaskOnClick);
-        button9.onClick.AddListener(TaskOnClick);
 
 
     }
