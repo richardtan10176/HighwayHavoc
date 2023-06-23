@@ -41,7 +41,7 @@ public class StoreMenuController : MonoBehaviour
         }
         void activateCar2()
         {
-            Debug.Log("car2 selected");
+            Debug.Log("car2 selected"); 
         }
         void activateCar3()
         {
