@@ -127,14 +127,18 @@ public class Playermovement : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
+
+		
 		if (other.transform.tag.Equals("Obstacle"))
 		{
 			Time.timeScale = 0;
-			playerMove = false;
-			Time.timeScale = 1;
 			forwardSpeed = 0;
 			Debug.Log("Hit");
+			playerMove = false;
 			Invoke("ParticleSpawn", 1);
+
+			Time.timeScale = 1;
+			
 		}
 	}
 
