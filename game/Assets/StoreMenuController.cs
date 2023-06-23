@@ -11,6 +11,15 @@ public class StoreMenuController : MonoBehaviour
     public Button returnToMainMenu;
     public Button goToGemStore;
     public Button goToCoinStore;
+
+    public Button buy100gems;
+    public Button buy500gems;
+    public Button buy1000gems;
+
+    public Button buy1000coins;
+    public Button buy5000coins;
+    public Button buy10000coins;
+
     GameObject activeMenu;
     public GameObject CarStore, gemStore, coinStore;
     static public int userGearsAmount;
@@ -21,7 +30,7 @@ public class StoreMenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         //GameObject activeMenu = mainMenu;
-
+ 
         button1.onClick.AddListener(activateCar1);
         button2.onClick.AddListener(activateCar2);
         button3.onClick.AddListener(activateCar3);
@@ -30,9 +39,19 @@ public class StoreMenuController : MonoBehaviour
         button6.onClick.AddListener(activateCar6);
         button7.onClick.AddListener(activateCar7);
         button8.onClick.AddListener(activateCar8);
+        
         returnToMainMenu.onClick.AddListener(returnToMenu);
         goToGemStore.onClick.AddListener(openGemMenu);
         goToCoinStore.onClick.AddListener(openCoinMenu);
+        /*
+        buy100gems.onClick.addListener();
+        buy500gems.onClick.addListener();
+        buy1000gems.onClick.addListener();
+
+        buy1000coins.onClick.addListener();
+        buy5000coins.onClick.addListener();
+        buy10000coins.onClick.addListener();
+        */
 
 
         void activateCar1()
@@ -88,6 +107,11 @@ public class StoreMenuController : MonoBehaviour
         void openCarMenu()
         {
 
+        }
+
+        void purchaseGems()
+        {
+            
         }
 
 
