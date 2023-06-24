@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.Purchasing;
 
 public class StoreMenuController : MonoBehaviour
 {
@@ -30,7 +30,8 @@ public class StoreMenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         //GameObject activeMenu = mainMenu;
- 
+        StandardPurchasingModule.Instance().useFakeStoreAlways = true;
+
         button1.onClick.AddListener(activateCar1);
         button2.onClick.AddListener(activateCar2);
         button3.onClick.AddListener(activateCar3);
@@ -43,11 +44,8 @@ public class StoreMenuController : MonoBehaviour
         returnToMainMenu.onClick.AddListener(returnToMenu);
         goToGemStore.onClick.AddListener(openGemMenu);
         goToCoinStore.onClick.AddListener(openCoinMenu);
+        
         /*
-        buy100gems.onClick.addListener();
-        buy500gems.onClick.addListener();
-        buy1000gems.onClick.addListener();
-
         buy1000coins.onClick.addListener();
         buy5000coins.onClick.addListener();
         buy10000coins.onClick.addListener();
@@ -107,11 +105,6 @@ public class StoreMenuController : MonoBehaviour
         void openCarMenu()
         {
 
-        }
-
-        void purchaseGems()
-        {
-            
         }
 
 
