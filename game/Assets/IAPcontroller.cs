@@ -11,25 +11,34 @@ public class IAPcontroller : MonoBehaviour
     
     public void OnPurchaseComplete(Product product)
     {
+        Debug.Log(product.definition.id);
         if (product.definition.id == gems100)
         {
-            Debug.Log("gave 100");
             //give user 100 gems
+            addGems(100);
+            return;
         }
         else if (product.definition.id == gems500)
         {
-            Debug.Log("gave 00");
             //give user 500 gems
+            addGems(500);
+            return;
         }
         else if(product.definition.id == gems1000)
         {
-            Debug.Log("gave 1000");
             //give user 1000 gems
+            addGems(1000);
+            return;
         }
     }
     public void OnPurchaseFailed(Product product, PurchaseFailureReason reason)
     {
         Debug.Log("Purchase of " + product.definition.id + " failed due to " + reason);
+    }
+    //give the user their gems
+    void addGems(int amount)
+    {
+        
     }
     
 }
