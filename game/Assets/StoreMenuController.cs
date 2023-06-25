@@ -12,10 +12,6 @@ public class StoreMenuController : MonoBehaviour
     public Button goToGemStore;
     public Button goToCoinStore;
 
-    public Button buy100gems;
-    public Button buy500gems;
-    public Button buy1000gems;
-
     public Button buy1000coins;
     public Button buy5000coins;
     public Button buy10000coins;
@@ -25,12 +21,20 @@ public class StoreMenuController : MonoBehaviour
     static public int userGearsAmount;
     static public int userCoinsAmount;
 
-    
+
+    //for coin popup menu
+    public GameObject popupMenu;
+    public Button exitPopupButton;
+    public Button buyMoreGems;
+
+
 
     // Start is called before the first frame update
     void Start() {
-        //GameObject activeMenu = mainMenu;
-        StandardPurchasingModule.Instance().useFakeStoreAlways = true;
+        //GameObject activeMenu = mainMenu;  active menu should be main menu by default
+
+
+        StandardPurchasingModule.Instance().useFakeStoreAlways = true; //remove for final release
 
         button1.onClick.AddListener(activateCar1);
         button2.onClick.AddListener(activateCar2);
@@ -45,11 +49,14 @@ public class StoreMenuController : MonoBehaviour
         goToGemStore.onClick.AddListener(openGemMenu);
         goToCoinStore.onClick.AddListener(openCoinMenu);
         
-        /*
-        buy1000coins.onClick.addListener();
-        buy5000coins.onClick.addListener();
-        buy10000coins.onClick.addListener();
-        */
+        
+        buy1000coins.onClick.AddListener(addCoins1000);
+        buy5000coins.onClick.AddListener(addCoins5000);
+        buy10000coins.onClick.AddListener(addCoins10000);
+
+        exitPopupButton.onClick.AddListener(closePopup);
+        buyMoreGems.onClick.AddListener(openGemMenu);
+        
 
 
         void activateCar1()
@@ -87,7 +94,7 @@ public class StoreMenuController : MonoBehaviour
         void returnToMenu()
         {
             Debug.Log("openining main menu");
-            activeMenu.SetActive(false);
+            //activeMenu.SetActive(false);
             //mainMenu.SetActive(true);
         }
         void openGemMenu()
@@ -102,13 +109,41 @@ public class StoreMenuController : MonoBehaviour
             //activeMenu.SetActive(false);
             coinStore.SetActive(true);
         }
-        void openCarMenu()
+        void openPopup()
         {
-
+            popupMenu.SetActive(true);
+        }
+        void closePopup()
+        {
+            popupMenu.SetActive(false);
         }
 
 
 
+
+        //===========unfinished================
+        void openCarMenu()
+        {
+            //open car selection menu
+        }
+
+
+        void addCoins1000()
+        {
+            //give player coins, but check if player has enough first, else bring up insufficient gems popup
+            Debug.Log("giving 1000 coins");
+           
+        }
+        void addCoins5000()
+        {
+            //give player coins, but check if player has enough first, else bring up insufficient gems popup
+            Debug.Log("giving 5000 coins");
+        }
+        void addCoins10000()
+        {
+            //give player coins, but check if player has enough first, else bring up insufficient gems popup
+            Debug.Log("giving 10000 coins");
+        }
     }
     
     // Update is called once per frame
