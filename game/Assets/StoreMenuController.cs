@@ -18,8 +18,10 @@ public class StoreMenuController : MonoBehaviour
     public Button buy10000coins;
 
     public GameObject mainMenu, CarStore, gemStore, coinStore;
-    static public int userGearsAmount;
-    static public int userCoinsAmount;
+    public GameObject car1select, car2select, car3select, car4select, car5select, car6select, car7select, car8select;
+    public GameObject carParent;
+
+
 
 
     //for coin popup menu
@@ -32,9 +34,28 @@ public class StoreMenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
 
+        if (!PlayerPrefs.HasKey("firsttime")) //first time in game
+        {
+            PlayerPrefs.SetInt("firsttime", 0);
+            
+
+            //set default selected car to the first car
+            car1select.SetActive(true);
+            PlayerPrefs.SetInt("playerCar", 1);
 
 
-        StandardPurchasingModule.Instance().useFakeStoreAlways = true; //remove for final releaseE
+            //give user gem and coin data
+            
+
+
+        }
+        else
+        {
+            carParent.transform.GetChild(PlayerPrefs.GetInt("playerCar")-1).GetChild(5).gameObject.SetActive(true);
+        }
+
+
+        StandardPurchasingModule.Instance().useFakeStoreAlways = true; //remove for final release
 
         button1.onClick.AddListener(activateCar1);
         button2.onClick.AddListener(activateCar2);
@@ -63,38 +84,115 @@ public class StoreMenuController : MonoBehaviour
 
         void activateCar1()
         {
-            Debug.Log("car1 selected");
+            car1select.SetActive(true);
+            PlayerPrefs.SetInt("playerCar", 1);
+            Debug.Log(PlayerPrefs.GetInt("playerCar"));
+            car2select.SetActive(false);
+            car3select.SetActive(false);
+            car4select.SetActive(false);
+            car5select.SetActive(false);
+            car6select.SetActive(false);
+            car7select.SetActive(false);
+            car8select.SetActive(false);
         }
         void activateCar2()
         {
-            Debug.Log("car2 selected"); 
+            car2select.SetActive(true);
+            PlayerPrefs.SetInt("playerCar", 2);
+            Debug.Log(PlayerPrefs.GetInt("playerCar"));
+            car1select.SetActive(false);
+            car3select.SetActive(false);
+            car4select.SetActive(false);
+            car5select.SetActive(false);
+            car6select.SetActive(false);
+            car7select.SetActive(false);
+            car8select.SetActive(false);
         }
         void activateCar3()
         {
-            Debug.Log("car3 selected");
+            car3select.SetActive(true);
+            PlayerPrefs.SetInt("playerCar", 3);
+
+            car2select.SetActive(false);
+            car1select.SetActive(false);
+            car4select.SetActive(false);
+            car5select.SetActive(false);
+            car6select.SetActive(false);
+            car7select.SetActive(false);
+            car8select.SetActive(false);
+
         }
         void activateCar4()
         {
-            Debug.Log("car4 selected");
+            car4select.SetActive(true);
+            PlayerPrefs.SetInt("playerCar", 4);
+
+            car2select.SetActive(false);
+            car3select.SetActive(false);
+            car1select.SetActive(false);
+            car5select.SetActive(false);
+            car6select.SetActive(false);
+            car7select.SetActive(false);
+            car8select.SetActive(false);
         }
         void activateCar5()
         {
-            Debug.Log("car5 selected");
+            car5select.SetActive(true);
+            PlayerPrefs.SetInt("playerCar", 5);
+
+            car2select.SetActive(false);
+            car3select.SetActive(false);
+            car4select.SetActive(false);
+            car1select.SetActive(false);
+            car6select.SetActive(false);
+            car7select.SetActive(false);
+            car8select.SetActive(false);
         }
         void activateCar6()
         {
-            Debug.Log("car6 selected");
+            car6select.SetActive(true);
+            PlayerPrefs.SetInt("playerCar", 6);
+
+            car2select.SetActive(false);
+            car3select.SetActive(false);
+            car4select.SetActive(false);
+            car5select.SetActive(false);
+            car1select.SetActive(false);
+            car7select.SetActive(false);
+            car8select.SetActive(false);
         }
         void activateCar7()
         {
-            Debug.Log("car7 selected");
+            car7select.SetActive(true);
+            PlayerPrefs.SetInt("playerCar", 7);
+
+            car2select.SetActive(false);
+            car3select.SetActive(false);
+            car4select.SetActive(false);
+            car5select.SetActive(false);
+            car6select.SetActive(false);
+            car1select.SetActive(false);
+            car8select.SetActive(false);
         }
         void activateCar8()
         {
-            Debug.Log("car8 selected");
+            car8select.SetActive(true);
+            PlayerPrefs.SetInt("playerCar", 8);
+
+            car2select.SetActive(false);
+            car3select.SetActive(false);
+            car4select.SetActive(false);
+            car5select.SetActive(false);
+            car6select.SetActive(false);
+            car7select.SetActive(false);
+            car1select.SetActive(false);
         }
         void returnToMenu()
         {
+            if (CarStore.activeSelf)
+            {
+                PlayerPrefs.Save();
+            }
             gemStore.SetActive(false);
             coinStore.SetActive(false);
             CarStore.SetActive(false);
