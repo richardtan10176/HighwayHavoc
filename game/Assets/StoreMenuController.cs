@@ -11,13 +11,13 @@ public class StoreMenuController : MonoBehaviour
     public Button returnToMainMenu;
     public Button goToGemStore;
     public Button goToCoinStore;
+    public Button goToCarStore;
 
     public Button buy1000coins;
     public Button buy5000coins;
     public Button buy10000coins;
 
-    GameObject activeMenu;
-    public GameObject CarStore, gemStore, coinStore;
+    public GameObject mainMenu, CarStore, gemStore, coinStore;
     static public int userGearsAmount;
     static public int userCoinsAmount;
 
@@ -31,10 +31,10 @@ public class StoreMenuController : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        //GameObject activeMenu = mainMenu;  active menu should be main menu by default
 
 
-        StandardPurchasingModule.Instance().useFakeStoreAlways = true; //remove for final release
+
+        StandardPurchasingModule.Instance().useFakeStoreAlways = true; //remove for final releaseE
 
         button1.onClick.AddListener(activateCar1);
         button2.onClick.AddListener(activateCar2);
@@ -48,6 +48,8 @@ public class StoreMenuController : MonoBehaviour
         returnToMainMenu.onClick.AddListener(returnToMenu);
         goToGemStore.onClick.AddListener(openGemMenu);
         goToCoinStore.onClick.AddListener(openCoinMenu);
+        goToCarStore.onClick.AddListener(openCarMenu);
+
         
         
         buy1000coins.onClick.AddListener(addCoins1000);
@@ -93,21 +95,39 @@ public class StoreMenuController : MonoBehaviour
         }
         void returnToMenu()
         {
-            Debug.Log("openining main menu");
-            //activeMenu.SetActive(false);
-            //mainMenu.SetActive(true);
+            gemStore.SetActive(false);
+            coinStore.SetActive(false);
+            CarStore.SetActive(false);
+
+            mainMenu.SetActive(true);
+            returnToMainMenu.transform.parent.gameObject.SetActive(false);
         }
         void openGemMenu()
         {
-            Debug.Log("opening gem store");
-            //activeMenu.SetActive(false);
+            mainMenu.SetActive(false);
+            coinStore.SetActive(false);
+            CarStore.SetActive(false);
+
             gemStore.SetActive(true);
+            returnToMainMenu.transform.parent.gameObject.SetActive(true);
         }
         void openCoinMenu()
         {
-            Debug.Log("opening coin store");
-            //activeMenu.SetActive(false);
+            mainMenu.SetActive(false);
+            gemStore.SetActive(false);
+            CarStore.SetActive(false);
+
             coinStore.SetActive(true);
+            returnToMainMenu.transform.parent.gameObject.SetActive(true);
+        }
+        void openCarMenu()
+        {
+            mainMenu.SetActive(false);
+            coinStore.SetActive(false);
+            gemStore.SetActive(false);
+
+            CarStore.SetActive(true);
+            returnToMainMenu.transform.parent.gameObject.SetActive(true);
         }
         void openPopup()
         {
@@ -122,10 +142,7 @@ public class StoreMenuController : MonoBehaviour
 
 
         //===========unfinished================
-        void openCarMenu()
-        {
-            //open car selection menu
-        }
+
 
 
         void addCoins1000()
