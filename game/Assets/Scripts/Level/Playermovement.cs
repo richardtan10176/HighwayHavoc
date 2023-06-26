@@ -32,7 +32,7 @@ public class Playermovement : MonoBehaviour
 	{
 		ApplyGravity();
 		direction.z = forwardSpeed;
-		if(playerMove == true)
+		if (playerMove == true)
 		{
 			if (forwardSpeed < maxSpeed)
 			{
@@ -71,32 +71,31 @@ public class Playermovement : MonoBehaviour
 			}
 		}
 
-
-
-
 	}
+
 
 	private void FixedUpdate()
 	{
 		Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
 
-		if (desiredlane == 0)
 		{
-			targetPosition += (Vector3.left * laneDistance) * 1.8f;
+			if (desiredlane == 0)
+			{
+				targetPosition += (Vector3.left * laneDistance) * 1.8f;
+			}
+			else if (desiredlane == 1)
+			{
+				targetPosition += (Vector3.left * laneDistance) * 0.6f;
+			}
+			else if (desiredlane == 2)
+			{
+				targetPosition += (Vector3.right * laneDistance) * 0.6f;
+			}
+			else if (desiredlane == 3)
+			{
+				targetPosition += (Vector3.right * laneDistance) * 1.8f;
+			}
 		}
-		else if (desiredlane == 1)
-		{
-			targetPosition += (Vector3.left * laneDistance) * 0.6f;
-		}
-		else if (desiredlane == 2)
-		{
-			targetPosition += (Vector3.right * laneDistance) * 0.6f;
-		}
-		else if (desiredlane == 3)
-		{
-			targetPosition += (Vector3.right * laneDistance) * 1.8f;
-		}
-
 		//transform.position = targetPosition;
 		if (transform.position != targetPosition)
 		{
