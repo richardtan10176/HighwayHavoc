@@ -38,7 +38,7 @@ public class IAPcontroller : MonoBehaviour
     //give the user their gems
     void addGems(int amount)
     {
-        Debug.Log(amount);
+        
     }
     
 }

@@ -21,6 +21,9 @@ public class StoreMenuController : MonoBehaviour
     public GameObject car1select, car2select, car3select, car4select, car5select, car6select, car7select, car8select;
     public GameObject carParent;
 
+    public GameObject coinAmount;
+    public GameObject gemAmount;
+
 
 
 
@@ -42,9 +45,10 @@ public class StoreMenuController : MonoBehaviour
             //set default selected car to the first car
             car1select.SetActive(true);
             PlayerPrefs.SetInt("playerCar", 1);
+            PlayerPrefs.SetInt("HighScore", 0);
 
 
-            //give user gem and coin data
+            //give user gem and coin data ()
             
 
 
@@ -86,7 +90,6 @@ public class StoreMenuController : MonoBehaviour
         {
             car1select.SetActive(true);
             PlayerPrefs.SetInt("playerCar", 1);
-            Debug.Log(PlayerPrefs.GetInt("playerCar"));
             car2select.SetActive(false);
             car3select.SetActive(false);
             car4select.SetActive(false);
@@ -99,7 +102,6 @@ public class StoreMenuController : MonoBehaviour
         {
             car2select.SetActive(true);
             PlayerPrefs.SetInt("playerCar", 2);
-            Debug.Log(PlayerPrefs.GetInt("playerCar"));
             car1select.SetActive(false);
             car3select.SetActive(false);
             car4select.SetActive(false);
@@ -205,6 +207,7 @@ public class StoreMenuController : MonoBehaviour
             mainMenu.SetActive(false);
             coinStore.SetActive(false);
             CarStore.SetActive(false);
+            closePopup();
 
             gemStore.SetActive(true);
             returnToMainMenu.transform.parent.gameObject.SetActive(true);
