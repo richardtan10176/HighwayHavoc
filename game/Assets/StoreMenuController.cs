@@ -21,10 +21,7 @@ public class StoreMenuController : MonoBehaviour
     public GameObject car1select, car2select, car3select, car4select, car5select, car6select, car7select, car8select;
     public GameObject carParent;
 
-    public GameObject coinAmount;
-    public GameObject gemAmount;
-
-
+    
 
 
     //for coin popup menu
@@ -46,17 +43,16 @@ public class StoreMenuController : MonoBehaviour
             car1select.SetActive(true);
             PlayerPrefs.SetInt("playerCar", 1);
             PlayerPrefs.SetInt("HighScore", 0);
-
-
-            //give user gem and coin data ()
-            
-
+            Debug.Log("bruh");
 
         }
         else
         {
-            carParent.transform.GetChild(PlayerPrefs.GetInt("playerCar")-1).GetChild(5).gameObject.SetActive(true);
+            Debug.Log(PlayerPrefs.GetInt("playerCar"));
+            carParent.transform.GetChild(PlayerPrefs.GetInt("playerCar")-1).GetChild(4).gameObject.SetActive(true);
         }
+
+        StartCoroutine(LateStart(0.1f));
 
 
         StandardPurchasingModule.Instance().useFakeStoreAlways = true; //remove for final release
@@ -83,6 +79,8 @@ public class StoreMenuController : MonoBehaviour
 
         exitPopupButton.onClick.AddListener(closePopup);
         buyMoreGems.onClick.AddListener(openGemMenu);
+
+        
         
 
 
@@ -90,6 +88,7 @@ public class StoreMenuController : MonoBehaviour
         {
             car1select.SetActive(true);
             PlayerPrefs.SetInt("playerCar", 1);
+
             car2select.SetActive(false);
             car3select.SetActive(false);
             car4select.SetActive(false);
@@ -100,6 +99,21 @@ public class StoreMenuController : MonoBehaviour
         }
         void activateCar2()
         {
+            if(IAPcontroller.mainPlayer.coins >= 250)
+            {
+                if(IAPcontroller.mainPlayer.car1 == 0)
+                {
+                    IAPcontroller.mainPlayer.removeCoins(250);
+                    carParent.transform.GetChild(1).GetChild(5).gameObject.SetActive(false);
+                    IAPcontroller.mainPlayer.car1 = 1;
+                    SaveSystem.SavePlayer(IAPcontroller.mainPlayer);
+                }
+            }
+            else
+            {
+                openPopup();
+                return;
+            }
             car2select.SetActive(true);
             PlayerPrefs.SetInt("playerCar", 2);
             car1select.SetActive(false);
@@ -112,6 +126,22 @@ public class StoreMenuController : MonoBehaviour
         }
         void activateCar3()
         {
+            if (IAPcontroller.mainPlayer.coins >= 500)
+            {
+                if (IAPcontroller.mainPlayer.car2 == 0)
+                {
+                    IAPcontroller.mainPlayer.removeCoins(500);
+                    carParent.transform.GetChild(2).GetChild(5).gameObject.SetActive(false);
+                    IAPcontroller.mainPlayer.car2 = 1;
+                    SaveSystem.SavePlayer(IAPcontroller.mainPlayer);
+                }
+
+            }
+            else
+            {
+                openPopup();
+                return;
+            }
             car3select.SetActive(true);
             PlayerPrefs.SetInt("playerCar", 3);
 
@@ -126,6 +156,21 @@ public class StoreMenuController : MonoBehaviour
         }
         void activateCar4()
         {
+            if (IAPcontroller.mainPlayer.coins >= 1000)
+            {
+                if (IAPcontroller.mainPlayer.car3 == 0)
+                {
+                    IAPcontroller.mainPlayer.removeCoins(1000);
+                    carParent.transform.GetChild(3).GetChild(5).gameObject.SetActive(false);
+                    IAPcontroller.mainPlayer.car3 = 1;
+                    SaveSystem.SavePlayer(IAPcontroller.mainPlayer);
+                }
+            }
+            else
+            {
+                openPopup();
+                return;
+            }
             car4select.SetActive(true);
             PlayerPrefs.SetInt("playerCar", 4);
 
@@ -139,6 +184,21 @@ public class StoreMenuController : MonoBehaviour
         }
         void activateCar5()
         {
+            if (IAPcontroller.mainPlayer.coins >= 1750)
+            {
+                if (IAPcontroller.mainPlayer.car4 == 0)
+                {
+                    IAPcontroller.mainPlayer.removeCoins(1750);
+                    carParent.transform.GetChild(4).GetChild(5).gameObject.SetActive(false);
+                    IAPcontroller.mainPlayer.car4 = 1;
+                    SaveSystem.SavePlayer(IAPcontroller.mainPlayer);
+                }
+            }
+            else
+            {
+                openPopup();
+                return;
+            }
             car5select.SetActive(true);
             PlayerPrefs.SetInt("playerCar", 5);
 
@@ -152,6 +212,21 @@ public class StoreMenuController : MonoBehaviour
         }
         void activateCar6()
         {
+            if (IAPcontroller.mainPlayer.coins >= 2800)
+            {
+                if (IAPcontroller.mainPlayer.car5 == 0)
+                {
+                    IAPcontroller.mainPlayer.removeCoins(2800);
+                    carParent.transform.GetChild(5).GetChild(5).gameObject.SetActive(false);
+                    IAPcontroller.mainPlayer.car5 = 1;
+                    SaveSystem.SavePlayer(IAPcontroller.mainPlayer);
+                }
+            }
+            else
+            {
+                openPopup();
+                return;
+            }
             car6select.SetActive(true);
             PlayerPrefs.SetInt("playerCar", 6);
 
@@ -165,6 +240,21 @@ public class StoreMenuController : MonoBehaviour
         }
         void activateCar7()
         {
+            if (IAPcontroller.mainPlayer.coins >= 5000)
+            {
+                if (IAPcontroller.mainPlayer.car6 == 0)
+                {
+                    IAPcontroller.mainPlayer.removeCoins(5000);
+                    carParent.transform.GetChild(6).GetChild(5).gameObject.SetActive(false);
+                    IAPcontroller.mainPlayer.car6 = 1;
+                    SaveSystem.SavePlayer(IAPcontroller.mainPlayer);
+                }
+            }
+            else
+            {
+                openPopup();
+                return;
+            }
             car7select.SetActive(true);
             PlayerPrefs.SetInt("playerCar", 7);
 
@@ -178,6 +268,21 @@ public class StoreMenuController : MonoBehaviour
         }
         void activateCar8()
         {
+            if (IAPcontroller.mainPlayer.gems >= 250)
+            {
+                if (IAPcontroller.mainPlayer.car7 == 0)
+                {
+                    IAPcontroller.mainPlayer.removeGems(250);
+                    carParent.transform.GetChild(7).GetChild(5).gameObject.SetActive(false);
+                    IAPcontroller.mainPlayer.car7 = 1;
+                    SaveSystem.SavePlayer(IAPcontroller.mainPlayer);
+                }
+            }
+            else
+            {
+                openPopup();
+                return;
+            }
             car8select.SetActive(true);
             PlayerPrefs.SetInt("playerCar", 8);
 
@@ -269,5 +374,38 @@ public class StoreMenuController : MonoBehaviour
     {
         
     }
+    IEnumerator LateStart(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
 
+        if (IAPcontroller.mainPlayer.car1 == 0)
+        {
+            carParent.transform.GetChild(1).GetChild(5).gameObject.SetActive(true);
+        }
+        if (IAPcontroller.mainPlayer.car2 == 0)
+        {
+            carParent.transform.GetChild(2).GetChild(5).gameObject.SetActive(true);
+        }
+        if (IAPcontroller.mainPlayer.car3 == 0)
+        {
+            carParent.transform.GetChild(3).GetChild(5).gameObject.SetActive(true);
+        }
+        if (IAPcontroller.mainPlayer.car4 == 0)
+        {
+            carParent.transform.GetChild(4).GetChild(5).gameObject.SetActive(true);
+        }
+        if (IAPcontroller.mainPlayer.car5 == 0)
+        {
+            carParent.transform.GetChild(5).GetChild(5).gameObject.SetActive(true);
+        }
+        if (IAPcontroller.mainPlayer.car6 == 0)
+        {
+            carParent.transform.GetChild(6).GetChild(5).gameObject.SetActive(true);
+        }
+        if (IAPcontroller.mainPlayer.car7 == 0)
+        {
+            carParent.transform.GetChild(7).GetChild(5).gameObject.SetActive(true);
+        }
+
+    }
 }
