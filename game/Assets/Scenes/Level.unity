@@ -1065,8 +1065,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1141743777131199650, guid: 6effa0c5b823d7245a504f97e7587cb3, type: 3}
+      propertyPath: maxSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141743777131199650, guid: 6effa0c5b823d7245a504f97e7587cb3, type: 3}
       propertyPath: forwardSpeed
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141743777131199650, guid: 6effa0c5b823d7245a504f97e7587cb3, type: 3}
+      propertyPath: gravityMulti
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1141743777131199653, guid: 6effa0c5b823d7245a504f97e7587cb3, type: 3}
       propertyPath: m_Height
@@ -1154,6 +1162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
+    - {fileID: 1141743777131199653, guid: 6effa0c5b823d7245a504f97e7587cb3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6effa0c5b823d7245a504f97e7587cb3, type: 3}
 --- !u!4 &4596473002908257150 stripped
 Transform:
@@ -1174,3 +1183,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4596473002908257150}
   Coins: {fileID: 1368848309}
+--- !u!65 &4596473002908257158
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418916703}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8591188, y: 1.7404556, z: 4.34967}
+  m_Center: {x: 0.012492975, y: -0.13822, z: -0.026019733}
+--- !u!54 &4596473002908257159
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418916703}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 112
+  m_CollisionDetection: 1

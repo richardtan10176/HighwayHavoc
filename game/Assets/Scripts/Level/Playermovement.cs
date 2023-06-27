@@ -2,19 +2,19 @@ using UnityEngine;
 
 public class Playermovement : MonoBehaviour
 {
-	private CharacterController controller;
+	private Rigidbody rb;
 	public float forwardSpeed;
 	public bool playerMove = true;
 	
 	public float maxSpeed;
 
-	private Vector3 direction;
+
 	private int desiredlane = 1;
 	public float laneDistance = 2;
 
-	private float gravity = -9.81f;
+
 	[SerializeField] private float gravityMulti = 3.0f;
-	private float velocity;
+
 
 	[SerializeField] GameObject particle;
 
@@ -25,19 +25,21 @@ public class Playermovement : MonoBehaviour
 		NumOfCoins = 0;
 
 		desiredlane = Random.Range(0, 3);
-		controller = GetComponent<CharacterController>();
+		rb = GetComponent<Rigidbody>();
 	}
 
 	private void Update()
 	{
-		ApplyGravity();
-		direction.z = forwardSpeed;
+		rb.velocity = Vector3.forward * forwardSpeed;
+
+
 		if (playerMove == true)
 		{
 			if (forwardSpeed < maxSpeed)
 			{
-				forwardSpeed += 0.1f * Time.deltaTime;
+			forwardSpeed += .01f;
 			}
+
 
 			if (Input.GetKeyDown(KeyCode.D))
 			{
@@ -73,56 +75,37 @@ public class Playermovement : MonoBehaviour
 
 	}
 
-
 	private void FixedUpdate()
 	{
-		Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
+			float targetPosition;
 
-		{
-			if (desiredlane == 0)
 			{
-				targetPosition += (Vector3.left * laneDistance) * 1.8f;
+				if (desiredlane == 0)
+				{
+
+					targetPosition = (-1 * laneDistance) * 1.8f;
+				transform.position = new Vector3(targetPosition, transform.position.y, transform.position.z);
 			}
-			else if (desiredlane == 1)
-			{
-				targetPosition += (Vector3.left * laneDistance) * 0.6f;
+				else if (desiredlane == 1)
+				{
+					targetPosition = (-1 * laneDistance) * 0.6f;
+				transform.position = new Vector3(targetPosition, transform.position.y, transform.position.z);
 			}
-			else if (desiredlane == 2)
-			{
-				targetPosition += (Vector3.right * laneDistance) * 0.6f;
+				else if (desiredlane == 2)
+				{
+					targetPosition = (-1 * laneDistance) * -0.6f;
+				transform.position = new Vector3(targetPosition, transform.position.y, transform.position.z);
 			}
-			else if (desiredlane == 3)
-			{
-				targetPosition += (Vector3.right * laneDistance) * 1.8f;
+				else if (desiredlane == 3)
+				{
+					targetPosition = (-1 * laneDistance) * -1.8f;
+				transform.position = new Vector3(targetPosition, transform.position.y, transform.position.z);
 			}
 		}
-		//transform.position = targetPosition;
-		if (transform.position != targetPosition)
-		{
-			Vector3 diff = targetPosition - transform.position;
-			Vector3 moveDir = diff.normalized * 30 * Time.deltaTime;
-			if (moveDir.sqrMagnitude < diff.magnitude)
-				controller.Move(moveDir);
-			else
-				controller.Move(diff);
-		}
-
-		controller.Move(direction * Time.deltaTime);
 	}
 
-	private void ApplyGravity()
-	{
-		if (controller.isGrounded && velocity < 0.0f) 
-		{
-			velocity = -1.0f;
-		}
-		else
-		{
-			velocity = gravity + gravityMulti * Time.deltaTime;
-		}
-		
-		direction.y = velocity;
-	}
+
+
 
 	private void OnTriggerEnter(Collider other)
 	{
