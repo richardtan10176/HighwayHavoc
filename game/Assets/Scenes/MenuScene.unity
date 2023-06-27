@@ -2156,8 +2156,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -256}
-  m_SizeDelta: {x: 684.9, y: 441.1}
+  m_AnchoredPosition: {x: 0, y: -33}
+  m_SizeDelta: {x: 684.9, y: 261}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &417423710
 MonoBehaviour:
@@ -3703,8 +3703,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -226.99998}
-  m_SizeDelta: {x: 554.78, y: 459.6}
+  m_AnchoredPosition: {x: 0, y: -3.9999847}
+  m_SizeDelta: {x: 554.78, y: 233.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &691149970
 MonoBehaviour:
@@ -5446,8 +5446,8 @@ MonoBehaviour:
   car5: 0
   car6: 0
   car7: 0
-  gemsText: {fileID: 263336282}
-  coinsText: {fileID: 162504934}
+  gemsObj: {fileID: 263336282}
+  coinsObj: {fileID: 162504934}
 --- !u!1 &963251791
 GameObject:
   m_ObjectHideFlags: 0
@@ -8652,7 +8652,6 @@ GameObject:
   - component: {fileID: 1556118650}
   - component: {fileID: 1556118649}
   - component: {fileID: 1556118648}
-  - component: {fileID: 1556118651}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -8748,29 +8747,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1556118651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1556118646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1751dd2bb7f6d034db567c23e6f05a9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gems: 0
-  coins: 0
-  car1: 0
-  car2: 0
-  car3: 0
-  car4: 0
-  car5: 0
-  car6: 0
-  car7: 0
-  gemsText: {fileID: 0}
-  coinsText: {fileID: 0}
 --- !u!1 &1574780205
 GameObject:
   m_ObjectHideFlags: 0
@@ -11120,7 +11096,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1901342892
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13538,7 +13514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1111614396485772381
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,9 +30,11 @@ public class StoreMenuController : MonoBehaviour
     public Button buyMoreGems;
 
 
-
     // Start is called before the first frame update
     void Start() {
+        Debug.Log("Car1 status: " + IAPcontroller.mainPlayer.car1);
+        Debug.Log("gems: " + IAPcontroller.mainPlayer.gems);
+        Debug.Log("coins: " + IAPcontroller.mainPlayer.coins);
 
         if (!PlayerPrefs.HasKey("firsttime")) //first time in game
         {
@@ -43,12 +45,11 @@ public class StoreMenuController : MonoBehaviour
             car1select.SetActive(true);
             PlayerPrefs.SetInt("playerCar", 1);
             PlayerPrefs.SetInt("HighScore", 0);
-            Debug.Log("bruh");
+
 
         }
         else
         {
-            Debug.Log(PlayerPrefs.GetInt("playerCar"));
             carParent.transform.GetChild(PlayerPrefs.GetInt("playerCar")-1).GetChild(4).gameObject.SetActive(true);
         }
 
@@ -106,7 +107,8 @@ public class StoreMenuController : MonoBehaviour
                     IAPcontroller.mainPlayer.removeCoins(250);
                     carParent.transform.GetChild(1).GetChild(5).gameObject.SetActive(false);
                     IAPcontroller.mainPlayer.car1 = 1;
-                    SaveSystem.SavePlayer(IAPcontroller.mainPlayer);
+                    IAPcontroller.mainPlayer.Save();
+                    Debug.Log(IAPcontroller.mainPlayer.car1);
                 }
             }
             else
@@ -133,7 +135,7 @@ public class StoreMenuController : MonoBehaviour
                     IAPcontroller.mainPlayer.removeCoins(500);
                     carParent.transform.GetChild(2).GetChild(5).gameObject.SetActive(false);
                     IAPcontroller.mainPlayer.car2 = 1;
-                    SaveSystem.SavePlayer(IAPcontroller.mainPlayer);
+                    IAPcontroller.mainPlayer.Save();
                 }
 
             }
@@ -163,7 +165,7 @@ public class StoreMenuController : MonoBehaviour
                     IAPcontroller.mainPlayer.removeCoins(1000);
                     carParent.transform.GetChild(3).GetChild(5).gameObject.SetActive(false);
                     IAPcontroller.mainPlayer.car3 = 1;
-                    SaveSystem.SavePlayer(IAPcontroller.mainPlayer);
+                    IAPcontroller.mainPlayer.Save();
                 }
             }
             else
@@ -191,7 +193,7 @@ public class StoreMenuController : MonoBehaviour
                     IAPcontroller.mainPlayer.removeCoins(1750);
                     carParent.transform.GetChild(4).GetChild(5).gameObject.SetActive(false);
                     IAPcontroller.mainPlayer.car4 = 1;
-                    SaveSystem.SavePlayer(IAPcontroller.mainPlayer);
+                    IAPcontroller.mainPlayer.Save();
                 }
             }
             else
@@ -219,7 +221,7 @@ public class StoreMenuController : MonoBehaviour
                     IAPcontroller.mainPlayer.removeCoins(2800);
                     carParent.transform.GetChild(5).GetChild(5).gameObject.SetActive(false);
                     IAPcontroller.mainPlayer.car5 = 1;
-                    SaveSystem.SavePlayer(IAPcontroller.mainPlayer);
+                    IAPcontroller.mainPlayer.Save();
                 }
             }
             else
@@ -247,7 +249,7 @@ public class StoreMenuController : MonoBehaviour
                     IAPcontroller.mainPlayer.removeCoins(5000);
                     carParent.transform.GetChild(6).GetChild(5).gameObject.SetActive(false);
                     IAPcontroller.mainPlayer.car6 = 1;
-                    SaveSystem.SavePlayer(IAPcontroller.mainPlayer);
+                    IAPcontroller.mainPlayer.Save();
                 }
             }
             else
@@ -275,7 +277,7 @@ public class StoreMenuController : MonoBehaviour
                     IAPcontroller.mainPlayer.removeGems(250);
                     carParent.transform.GetChild(7).GetChild(5).gameObject.SetActive(false);
                     IAPcontroller.mainPlayer.car7 = 1;
-                    SaveSystem.SavePlayer(IAPcontroller.mainPlayer);
+                    IAPcontroller.mainPlayer.Save();
                 }
             }
             else
@@ -354,18 +356,43 @@ public class StoreMenuController : MonoBehaviour
         void addCoins1000()
         {
             //give player coins, but check if player has enough first, else bring up insufficient gems popup
-            Debug.Log("giving 1000 coins");
+            if(IAPcontroller.mainPlayer.gems < 100)
+            {
+                openPopup();
+            }
+            else
+            {
+                IAPcontroller.mainPlayer.addCoins(1000);
+                IAPcontroller.mainPlayer.removeGems(100);
+            }
+            
            
         }
         void addCoins5000()
         {
             //give player coins, but check if player has enough first, else bring up insufficient gems popup
-            Debug.Log("giving 5000 coins");
+            if (IAPcontroller.mainPlayer.gems < 500)
+            {
+                openPopup();
+            }
+            else
+            {
+                IAPcontroller.mainPlayer.addCoins(5000);
+                IAPcontroller.mainPlayer.removeGems(500);
+            }
         }
         void addCoins10000()
         {
             //give player coins, but check if player has enough first, else bring up insufficient gems popup
-            Debug.Log("giving 10000 coins");
+            if (IAPcontroller.mainPlayer.gems < 1000)
+            {
+                openPopup();
+            }
+            else
+            {
+                IAPcontroller.mainPlayer.addCoins(10000);
+                IAPcontroller.mainPlayer.removeGems(1000);
+            }
         }
     }
     
@@ -380,6 +407,7 @@ public class StoreMenuController : MonoBehaviour
 
         if (IAPcontroller.mainPlayer.car1 == 0)
         {
+            
             carParent.transform.GetChild(1).GetChild(5).gameObject.SetActive(true);
         }
         if (IAPcontroller.mainPlayer.car2 == 0)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -14,11 +15,21 @@ public class Player : MonoBehaviour
     public int car6 = 0;
     public int car7 = 0;
 
-    public GameObject gemsText;
-    public GameObject coinsText;
+    public GameObject gemsObj;
+    public GameObject coinsObj;
 
+    public static TextMeshProUGUI gemsText;
+    public static TextMeshProUGUI coinsText;
 
-    
+    private void Awake()
+    {
+        gemsText = gemsObj.GetComponent<TMPro.TextMeshProUGUI>();
+        coinsText = coinsObj.GetComponent<TMPro.TextMeshProUGUI>();
+
+        gemsText.text = IAPcontroller.mainPlayer.gems.ToString();
+        coinsText.text = IAPcontroller.mainPlayer.coins.ToString();
+    }
+
     public void Save()
     {
         SaveSystem.SavePlayer(this);
@@ -33,21 +44,24 @@ public class Player : MonoBehaviour
     {
         gems += amount;
         Save();
-
+        gemsText.text = gems.ToString();
     }
     public void addCoins(int amount)
     {
         coins += amount;
-        Save();   
+        Save();
+        coinsText.text = coins.ToString();
     }
     public void removeGems(int amount)
     {
         gems -= amount;
         Save();
+        gemsText.text = gems.ToString();
     }
     public void removeCoins(int amount)
     {
         coins -= amount;
         Save();
+        coinsText.text = coins.ToString();
     }
 }
