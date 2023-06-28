@@ -617,6 +617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4596473002908257150}
   offset: {x: 0, y: 8, z: -15}
+  smoothSpeed: 0.125
 --- !u!1 &1037471652
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,19 +1184,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4596473002908257150}
   Coins: {fileID: 1368848309}
---- !u!65 &4596473002908257158
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1418916703}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.8591188, y: 1.7404556, z: 4.34967}
-  m_Center: {x: 0.012492975, y: -0.13822, z: -0.026019733}
 --- !u!54 &4596473002908257159
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1212,3 +1200,16 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!65 &4596473002908257162
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418916703}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7504867, y: 1.4847536, z: 4.1484566}
+  m_Center: {x: -0.0128388405, y: -0.12187223, z: 0.022692045}

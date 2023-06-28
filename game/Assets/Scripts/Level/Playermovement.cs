@@ -78,11 +78,10 @@ public class Playermovement : MonoBehaviour
 	private void FixedUpdate()
 	{
 			float targetPosition;
-
+			if(playerMove == true)
 			{
 				if (desiredlane == 0)
 				{
-
 					targetPosition = (-1 * laneDistance) * 1.8f;
 				transform.position = new Vector3(targetPosition, transform.position.y, transform.position.z);
 			}
