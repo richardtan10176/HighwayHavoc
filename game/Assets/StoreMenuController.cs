@@ -32,9 +32,6 @@ public class StoreMenuController : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        Debug.Log("Car1 status: " + IAPcontroller.mainPlayer.car1);
-        Debug.Log("gems: " + IAPcontroller.mainPlayer.gems);
-        Debug.Log("coins: " + IAPcontroller.mainPlayer.coins);
 
         if (!PlayerPrefs.HasKey("firsttime")) //first time in game
         {
@@ -108,7 +105,7 @@ public class StoreMenuController : MonoBehaviour
                     carParent.transform.GetChild(1).GetChild(5).gameObject.SetActive(false);
                     IAPcontroller.mainPlayer.car1 = 1;
                     IAPcontroller.mainPlayer.Save();
-                    Debug.Log(IAPcontroller.mainPlayer.car1);
+
                 }
             }
             else
