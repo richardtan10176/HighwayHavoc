@@ -945,8 +945,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 19.1, y: 0}
-  m_SizeDelta: {x: 100, y: 50}
+  m_AnchoredPosition: {x: 22.800005, y: 0}
+  m_SizeDelta: {x: 141.3, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &162504936
 MonoBehaviour:
@@ -1497,8 +1497,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 19, y: 0}
-  m_SizeDelta: {x: 100, y: 50}
+  m_AnchoredPosition: {x: 22.7, y: 0}
+  m_SizeDelta: {x: 141.3, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &263336284
 MonoBehaviour:
@@ -4053,7 +4053,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -33.58873, y: 0}
+  m_AnchoredPosition: {x: -38.91387, y: 0}
   m_SizeDelta: {x: 25, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &745335706
@@ -5397,6 +5397,7 @@ MonoBehaviour:
   buy1000coins: {fileID: 1284354778}
   buy5000coins: {fileID: 217006003}
   buy10000coins: {fileID: 1479801075}
+  highScoreTxt: {fileID: 1832952248}
   mainMenu: {fileID: 1090899878259767205}
   CarStore: {fileID: 1901342891}
   gemStore: {fileID: 1883761345}
@@ -5622,8 +5623,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 235.2, y: 691.89996}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 214.2, y: 691.89996}
+  m_SizeDelta: {x: 120, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &984702479
 MonoBehaviour:
@@ -7434,7 +7435,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30.274853, y: 0}
+  m_AnchoredPosition: {x: -35.6, y: 0}
   m_SizeDelta: {x: 25, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1410921179
@@ -9183,7 +9184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8068591242628779903, guid: 46bb2ec2ef1191a4eac0133872964f78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.419124
+      value: -18.744265
       objectReference: {fileID: 0}
     - target: {fileID: 8068591242628779903, guid: 46bb2ec2ef1191a4eac0133872964f78, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10317,7 +10318,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'High Score: 0'
+  m_text: 'High Score:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
@@ -10452,7 +10453,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
@@ -12009,8 +12010,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21.000015, y: 691.9}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -49.800003, y: 691.9}
+  m_SizeDelta: {x: 120, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2069408391
 MonoBehaviour:
@@ -12726,7 +12727,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000010290080567}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.5, y: 0, z: 0}
+  m_LocalPosition: {x: -20.82514, y: 0, z: 0}
   m_LocalScale: {x: 8.182393, y: 16.266771, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []

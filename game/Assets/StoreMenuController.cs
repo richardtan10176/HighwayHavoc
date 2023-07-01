@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Purchasing;
+using TMPro;
 
 public class StoreMenuController : MonoBehaviour
 {
@@ -16,12 +17,15 @@ public class StoreMenuController : MonoBehaviour
     public Button buy1000coins;
     public Button buy5000coins;
     public Button buy10000coins;
+    public GameObject highScoreTxt;
 
     public GameObject mainMenu, CarStore, gemStore, coinStore;
     public GameObject car1select, car2select, car3select, car4select, car5select, car6select, car7select, car8select;
     public GameObject carParent;
 
     
+
+
 
 
     //for coin popup menu
@@ -41,13 +45,18 @@ public class StoreMenuController : MonoBehaviour
             //set default selected car to the first car
             car1select.SetActive(true);
             PlayerPrefs.SetInt("playerCar", 1);
+
+
             PlayerPrefs.SetInt("HighScore", 0);
+
 
 
         }
         else
         {
             carParent.transform.GetChild(PlayerPrefs.GetInt("playerCar")-1).GetChild(4).gameObject.SetActive(true);
+            updateHighScore(highScoreTxt);
+
         }
 
         StartCoroutine(LateStart(0.1f));
@@ -345,11 +354,6 @@ public class StoreMenuController : MonoBehaviour
 
 
 
-
-        //===========unfinished================
-
-
-
         void addCoins1000()
         {
             //give player coins, but check if player has enough first, else bring up insufficient gems popup
@@ -391,13 +395,13 @@ public class StoreMenuController : MonoBehaviour
                 IAPcontroller.mainPlayer.removeGems(1000);
             }
         }
+
+        static void updateHighScore(GameObject text)
+        {
+            text.GetComponent<TMPro.TextMeshProUGUI>().text = PlayerPrefs.GetInt("HighScore").ToString();
+        }
     }
     
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     IEnumerator LateStart(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
