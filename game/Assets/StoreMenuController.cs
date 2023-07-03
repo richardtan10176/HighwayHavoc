@@ -14,6 +14,8 @@ public class StoreMenuController : MonoBehaviour
     public Button goToCoinStore;
     public Button goToCarStore;
 
+    public static AudioSource click;
+
     public Button buy1000coins;
     public Button buy5000coins;
     public Button buy10000coins;
@@ -34,6 +36,10 @@ public class StoreMenuController : MonoBehaviour
     public Button buyMoreGems;
 
 
+    private void Awake()
+    {
+        click = this.GetComponent<AudioSource>();
+    }
     // Start is called before the first frame update
     void Start() {
 
@@ -93,6 +99,7 @@ public class StoreMenuController : MonoBehaviour
 
         void activateCar1()
         {
+            click.Play();
             car1select.SetActive(true);
             PlayerPrefs.SetInt("playerCar", 1);
 
@@ -122,6 +129,7 @@ public class StoreMenuController : MonoBehaviour
                 openPopup();
                 return;
             }
+            click.Play();
             car2select.SetActive(true);
             PlayerPrefs.SetInt("playerCar", 2);
             car1select.SetActive(false);
@@ -150,6 +158,7 @@ public class StoreMenuController : MonoBehaviour
                 openPopup();
                 return;
             }
+            click.Play();
             car3select.SetActive(true);
             PlayerPrefs.SetInt("playerCar", 3);
 
@@ -179,6 +188,7 @@ public class StoreMenuController : MonoBehaviour
                 openPopup();
                 return;
             }
+            click.Play();
             car4select.SetActive(true);
             PlayerPrefs.SetInt("playerCar", 4);
 
@@ -207,6 +217,7 @@ public class StoreMenuController : MonoBehaviour
                 openPopup();
                 return;
             }
+            click.Play();
             car5select.SetActive(true);
             PlayerPrefs.SetInt("playerCar", 5);
 
@@ -235,6 +246,7 @@ public class StoreMenuController : MonoBehaviour
                 openPopup();
                 return;
             }
+            click.Play();
             car6select.SetActive(true);
             PlayerPrefs.SetInt("playerCar", 6);
 
@@ -263,6 +275,7 @@ public class StoreMenuController : MonoBehaviour
                 openPopup();
                 return;
             }
+            click.Play();
             car7select.SetActive(true);
             PlayerPrefs.SetInt("playerCar", 7);
 
@@ -291,6 +304,7 @@ public class StoreMenuController : MonoBehaviour
                 openPopup();
                 return;
             }
+            click.Play();
             car8select.SetActive(true);
             PlayerPrefs.SetInt("playerCar", 8);
 
@@ -308,6 +322,7 @@ public class StoreMenuController : MonoBehaviour
             {
                 PlayerPrefs.Save();
             }
+            click.Play();
             gemStore.SetActive(false);
             coinStore.SetActive(false);
             CarStore.SetActive(false);
@@ -317,6 +332,7 @@ public class StoreMenuController : MonoBehaviour
         }
         void openGemMenu()
         {
+            click.Play();
             mainMenu.SetActive(false);
             coinStore.SetActive(false);
             CarStore.SetActive(false);
@@ -327,6 +343,7 @@ public class StoreMenuController : MonoBehaviour
         }
         void openCoinMenu()
         {
+            click.Play();
             mainMenu.SetActive(false);
             gemStore.SetActive(false);
             CarStore.SetActive(false);
@@ -336,6 +353,7 @@ public class StoreMenuController : MonoBehaviour
         }
         void openCarMenu()
         {
+            click.Play();
             mainMenu.SetActive(false);
             coinStore.SetActive(false);
             gemStore.SetActive(false);
@@ -363,6 +381,7 @@ public class StoreMenuController : MonoBehaviour
             }
             else
             {
+                click.Play();
                 IAPcontroller.mainPlayer.addCoins(1000);
                 IAPcontroller.mainPlayer.removeGems(100);
             }
@@ -378,6 +397,7 @@ public class StoreMenuController : MonoBehaviour
             }
             else
             {
+                click.Play();
                 IAPcontroller.mainPlayer.addCoins(5000);
                 IAPcontroller.mainPlayer.removeGems(500);
             }
@@ -391,6 +411,7 @@ public class StoreMenuController : MonoBehaviour
             }
             else
             {
+                click.Play();
                 IAPcontroller.mainPlayer.addCoins(10000);
                 IAPcontroller.mainPlayer.removeGems(1000);
             }
