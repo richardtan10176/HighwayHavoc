@@ -8,6 +8,9 @@ TagManager:
   - Canvas
   - Ground
   - Coin
+  - Left
+  - Right
+  - Middle
   layers:
   - Default
   - TransparentFX

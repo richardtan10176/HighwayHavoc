@@ -1,19 +1,20 @@
 using UnityEngine;
 
+
 public class Playermovement : MonoBehaviour
 {
-	private Rigidbody rb;
+	private CharacterController ch;
 	public float forwardSpeed;
 	public bool playerMove = true;
-	
+
 	public float maxSpeed;
 
-
+	private Vector3 velocity;
 	private int desiredlane = 1;
-	public float laneDistance = 2;
-
-
-	[SerializeField] private float gravityMulti = 3.0f;
+	public float laneDistance = 4;
+	private int privlane;
+	private float grav = -9.81f;
+	[SerializeField] private float gravityMulti = 2.0f;
 
 
 	[SerializeField] GameObject particle;
@@ -25,24 +26,24 @@ public class Playermovement : MonoBehaviour
 		NumOfCoins = 0;
 
 		desiredlane = Random.Range(0, 3);
-		rb = GetComponent<Rigidbody>();
+		privlane = desiredlane;
+		ch = GetComponent<CharacterController>();
+
 	}
 
 	private void Update()
 	{
-		rb.velocity = Vector3.forward * forwardSpeed;
 
+	
+		velocity.y += grav *  Time.deltaTime;
 
 		if (playerMove == true)
 		{
-			if (forwardSpeed < maxSpeed)
-			{
-			forwardSpeed += .01f;
-			}
 
 
 			if (Input.GetKeyDown(KeyCode.D))
 			{
+				privlane = desiredlane;
 				desiredlane++;
 				if (desiredlane == 4)
 				{
@@ -52,6 +53,7 @@ public class Playermovement : MonoBehaviour
 
 			if (Input.GetKeyDown(KeyCode.A))
 			{
+				privlane = desiredlane;
 				desiredlane--;
 				if (desiredlane == -1)
 				{
@@ -61,12 +63,14 @@ public class Playermovement : MonoBehaviour
 
 			if (SwipeManager.swipeRight)
 			{
+				privlane = desiredlane;
 				desiredlane++;
 				if (desiredlane == 4)
 					desiredlane = 3;
 			}
 			if (SwipeManager.swipeLeft)
 			{
+				privlane = desiredlane;
 				desiredlane--;
 				if (desiredlane == -1)
 					desiredlane = 0;
@@ -74,54 +78,56 @@ public class Playermovement : MonoBehaviour
 		}
 
 	}
-
 	private void FixedUpdate()
-	{
-			float targetPosition;
-			if(playerMove == true)
-			{
-				if (desiredlane == 0)
-				{
-					targetPosition = (-1 * laneDistance) * 1.8f;
-				transform.position = new Vector3(targetPosition, transform.position.y, transform.position.z);
-			}
-				else if (desiredlane == 1)
-				{
-					targetPosition = (-1 * laneDistance) * 0.6f;
-				transform.position = new Vector3(targetPosition, transform.position.y, transform.position.z);
-			}
-				else if (desiredlane == 2)
-				{
-					targetPosition = (-1 * laneDistance) * -0.6f;
-				transform.position = new Vector3(targetPosition, transform.position.y, transform.position.z);
-			}
-				else if (desiredlane == 3)
-				{
-					targetPosition = (-1 * laneDistance) * -1.8f;
-				transform.position = new Vector3(targetPosition, transform.position.y, transform.position.z);
-			}
-		}
-	}
-
-
-
-
-	private void OnTriggerEnter(Collider other)
 	{
 
 		
-		if (other.transform.tag.Equals("Obstacle"))
-		{
-			Time.timeScale = 0;
-			forwardSpeed = 0;
-			Debug.Log("Hit");
-			playerMove = false;
-			Invoke("ParticleSpawn", 1);
+		Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
 
-			Time.timeScale = 1;
-			
+		if (playerMove == true)
+		{
+			velocity.z = forwardSpeed;
+			if (forwardSpeed < maxSpeed)
+			{
+				forwardSpeed += .01f;
+			}
+			ch.Move(velocity * Time.fixedDeltaTime);
+
+			if (desiredlane == 0)
+			{
+				targetPosition += (Vector3.left * laneDistance) * 1.8f;
+			}
+			else if (desiredlane == 1)
+			{
+				targetPosition += (Vector3.left * laneDistance) * 0.6f;
+			}
+			else if (desiredlane == 2)
+			{
+				targetPosition += (Vector3.left * laneDistance) * -0.6f;
+			}
+			else if (desiredlane == 3)
+			{
+				targetPosition += (Vector3.left * laneDistance) * -1.8f;
+			}
+
 		}
+		if (transform.position != targetPosition)
+		{
+			Vector3 diff = targetPosition - transform.position;
+			Vector3 moveDir = diff.normalized * 30 * Time.deltaTime;
+			if (moveDir.sqrMagnitude < diff.magnitude)
+				ch.Move(moveDir);
+			else
+				ch.Move(diff);
+		}
+
+		ch.Move(velocity * Time.deltaTime);
 	}
+
+
+
+
+	
 
 	private void ParticleSpawn()
 	{
