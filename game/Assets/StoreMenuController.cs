@@ -19,6 +19,7 @@ public class StoreMenuController : MonoBehaviour
     public Button buy1000coins;
     public Button buy5000coins;
     public Button buy10000coins;
+    public Button playButton;
     public GameObject highScoreTxt;
 
     public GameObject mainMenu, CarStore, gemStore, coinStore;
@@ -92,6 +93,8 @@ public class StoreMenuController : MonoBehaviour
 
         exitPopupButton.onClick.AddListener(closePopup);
         buyMoreGems.onClick.AddListener(openGemMenu);
+
+        playButton.onClick.AddListener(startGame);
 
         
         
@@ -374,14 +377,15 @@ public class StoreMenuController : MonoBehaviour
 
         void addCoins1000()
         {
+            click.Play();
             //give player coins, but check if player has enough first, else bring up insufficient gems popup
-            if(IAPcontroller.mainPlayer.gems < 100)
+            if (IAPcontroller.mainPlayer.gems < 100)
             {
                 openPopup();
             }
             else
             {
-                click.Play();
+               
                 IAPcontroller.mainPlayer.addCoins(1000);
                 IAPcontroller.mainPlayer.removeGems(100);
             }
@@ -390,6 +394,7 @@ public class StoreMenuController : MonoBehaviour
         }
         void addCoins5000()
         {
+            click.Play();
             //give player coins, but check if player has enough first, else bring up insufficient gems popup
             if (IAPcontroller.mainPlayer.gems < 500)
             {
@@ -397,13 +402,14 @@ public class StoreMenuController : MonoBehaviour
             }
             else
             {
-                click.Play();
+               
                 IAPcontroller.mainPlayer.addCoins(5000);
                 IAPcontroller.mainPlayer.removeGems(500);
             }
         }
         void addCoins10000()
         {
+            click.Play();
             //give player coins, but check if player has enough first, else bring up insufficient gems popup
             if (IAPcontroller.mainPlayer.gems < 1000)
             {
@@ -411,10 +417,15 @@ public class StoreMenuController : MonoBehaviour
             }
             else
             {
-                click.Play();
+                
                 IAPcontroller.mainPlayer.addCoins(10000);
                 IAPcontroller.mainPlayer.removeGems(1000);
             }
+        }
+        void startGame()
+        {
+            //switch to game scene
+            click.Play(); 
         }
 
         static void updateHighScore(GameObject text)
@@ -422,14 +433,13 @@ public class StoreMenuController : MonoBehaviour
             text.GetComponent<TMPro.TextMeshProUGUI>().text = PlayerPrefs.GetInt("HighScore").ToString();
         }
     }
-    
+   
     IEnumerator LateStart(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
 
         if (IAPcontroller.mainPlayer.car1 == 0)
         {
-            
             carParent.transform.GetChild(1).GetChild(5).gameObject.SetActive(true);
         }
         if (IAPcontroller.mainPlayer.car2 == 0)

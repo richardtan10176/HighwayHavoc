@@ -5398,6 +5398,7 @@ MonoBehaviour:
   buy1000coins: {fileID: 1284354778}
   buy5000coins: {fileID: 217006003}
   buy10000coins: {fileID: 1479801075}
+  playButton: {fileID: 2518695612465083655}
   highScoreTxt: {fileID: 1832952248}
   mainMenu: {fileID: 1090899878259767205}
   CarStore: {fileID: 1901342891}

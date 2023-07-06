@@ -24,6 +24,7 @@ public class IAPcontroller : MonoBehaviour
         mainPlayer.car5 = temp.car5;
         mainPlayer.car6 = temp.car6;
         mainPlayer.car7 = temp.car7;
+        
     }
 
     public void OnPurchaseComplete(Product product)
