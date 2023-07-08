@@ -20,13 +20,13 @@ RenderSettings:
   m_FogDensity: 0.02
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.21176471, g: 0.24113551, b: 0.25882354, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 0.98
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.015379128, g: 0.10668563, b: 0.11320752, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 5f8b36e58af1be04c8cc3ae5641025c6, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 2bd8959f5fbd3644aa33af1a155fc147, type: 2}
   m_HaloStrength: 0
   m_FlareStrength: 0
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.07052275, g: 0.35373604, b: 0.97078824, a: 1}
+  m_IndirectSpecularColor: {r: 0.046110306, g: 0.40010637, b: 2.459229, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,72 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &264245747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 264245749}
+  - component: {fileID: 264245748}
+  - component: {fileID: 264245750}
+  m_Layer: 0
+  m_Name: SkyControl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &264245748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264245747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad6b622f50b90464b97ef8700e1373c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &264245749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264245747}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 1.548244, z: -0.0000001192093}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &264245750
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264245747}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 861b3af8f2be64e4fa530fcbed128444, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &411903376
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,6 +380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1895594359}
   score: {fileID: 712468938}
+  pScore: 0
 --- !u!114 &712468938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,6 +596,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -618,6 +686,27 @@ MonoBehaviour:
   player: {fileID: 1895594359}
   offset: {x: 0, y: 8, z: -15}
   smoothSpeed: 0.125
+--- !u!95 &963194230
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2faa16be2e00a124684a42e4d43fea95, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1037471652
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,6 +938,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fordd Focus RS WRC 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2109392033278031121, guid: 727e929c78a862640906adc0e0baf486, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5024019604508599088, guid: 727e929c78a862640906adc0e0baf486, type: 3}
       propertyPath: Coins
       value: 
@@ -931,21 +1024,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefabs:
+  - {fileID: 4655119746118660577, guid: b37eadfd16a6dc342a3f054ef8874acb, type: 3}
+  - {fileID: 4655119746118660577, guid: 72ff961e2b9323e4185922fb0dd4529a, type: 3}
   - {fileID: 4655119746118660577, guid: c40566bc6aeff0a408ad9c7e8bed919e, type: 3}
   - {fileID: 4655119746118660577, guid: 50b798897fe4897469e67dd4d2049683, type: 3}
-  - {fileID: 4655119746118660577, guid: 72ff961e2b9323e4185922fb0dd4529a, type: 3}
-  - {fileID: 4655119746118660577, guid: 7493c790015d7f4489654b7cae382d02, type: 3}
   - {fileID: 4655119746118660577, guid: ecc9a3c3d7039284c925f28254a813e2, type: 3}
   - {fileID: 4655119746118660577, guid: 16f6cc52f7aaa9b4b995597629002b15, type: 3}
   - {fileID: 4655119746118660577, guid: 649ed2de1f78ba149b5472250da770c8, type: 3}
+  - {fileID: 4655119746118660577, guid: c6e14d4ed7d15b44190c5d1d9e196085, type: 3}
   - {fileID: 4655119746118660577, guid: abbe8e849d3cadb4dad07ec2c89fcf7e, type: 3}
   - {fileID: 4655119746118660577, guid: b63d287b38b24794fa875a19df33fd88, type: 3}
-  - {fileID: 4655119746118660577, guid: 2627cf328c6b86941ac3869ac868d7be, type: 3}
+  - {fileID: 4655119746118660577, guid: c1fbad2a34bac9b45b2f3fac90eab366, type: 3}
   - {fileID: 4655119746118660577, guid: ba008cee33122de4e9d7054a5af1a23f, type: 3}
+  - {fileID: 4655119746118660577, guid: 2627cf328c6b86941ac3869ac868d7be, type: 3}
   - {fileID: 4655119746118660577, guid: 743ed47494d44fa488bfda49924ae6d1, type: 3}
-  - {fileID: 4655119746118660577, guid: abbe8e849d3cadb4dad07ec2c89fcf7e, type: 3}
-  - {fileID: 4655119746118660577, guid: 7493c790015d7f4489654b7cae382d02, type: 3}
-  - {fileID: 4655119746118660577, guid: 7493c790015d7f4489654b7cae382d02, type: 3}
   - {fileID: 4655119746118660577, guid: 7493c790015d7f4489654b7cae382d02, type: 3}
 --- !u!4 &1746105189
 Transform:
@@ -1013,13 +1105,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 0.5
-  m_Radius: 1.6
+  m_Height: 2
+  m_Radius: 1.8
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.75, z: -0.1}
+  m_Center: {x: 0, y: 1.5, z: -0.5}
 --- !u!1 &1957289373
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,6 +1198,10 @@ PrefabInstance:
     - target: {fileID: 8068591242628779872, guid: 46bb2ec2ef1191a4eac0133872964f78, type: 3}
       propertyPath: m_Name
       value: Coin 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068591242628779873, guid: 46bb2ec2ef1191a4eac0133872964f78, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8068591242628779903, guid: 46bb2ec2ef1191a4eac0133872964f78, type: 3}
       propertyPath: m_RootOrder

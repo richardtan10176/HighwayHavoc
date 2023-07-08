@@ -6,13 +6,12 @@ public class Collision : MonoBehaviour
 {
 	public Playermovement playermovement;
 	public GameObject player;
-	private void OnTriggerEnter(Collider other)
+	private void OnTriggerEnter(Collider collision)
 	{
-		if (other.transform.tag.Equals("Obstacle"))
+		if (collision.transform.tag.Equals("Obstacle"))
 		{
-			
-			player.GetComponent<Playermovement>().enabled = false;
 			Time.timeScale = 0;
+			player.GetComponent<Playermovement>().enabled = false;
 			playermovement.forwardSpeed = 0;
 			Debug.Log("hit");
 		}
@@ -23,7 +22,6 @@ public class Collision : MonoBehaviour
 		//playerMove = false;
 		//Invoke("ParticleSpawn", 1);
 		//Time.timeScale = 1;
-
-
 	}
 }
+

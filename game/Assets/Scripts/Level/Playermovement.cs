@@ -5,7 +5,7 @@ public class Playermovement : MonoBehaviour
 {
 	private CharacterController ch;
 	public float forwardSpeed;
-	public bool playerMove = true;
+	public bool playerMove;
 
 	public float maxSpeed;
 
@@ -24,7 +24,7 @@ public class Playermovement : MonoBehaviour
 	private void Start()
 	{
 		NumOfCoins = 0;
-
+		playerMove = true;
 		desiredlane = Random.Range(0, 3);
 		privlane = desiredlane;
 		ch = GetComponent<CharacterController>();
@@ -91,7 +91,7 @@ public class Playermovement : MonoBehaviour
 			{
 				forwardSpeed += .01f;
 			}
-			ch.Move(velocity * Time.fixedDeltaTime);
+			
 
 			if (desiredlane == 0)
 			{
@@ -110,18 +110,20 @@ public class Playermovement : MonoBehaviour
 				targetPosition += (Vector3.left * laneDistance) * -1.8f;
 			}
 
-		}
-		if (transform.position != targetPosition)
-		{
-			Vector3 diff = targetPosition - transform.position;
-			Vector3 moveDir = diff.normalized * 30 * Time.deltaTime;
-			if (moveDir.sqrMagnitude < diff.magnitude)
-				ch.Move(moveDir);
-			else
-				ch.Move(diff);
-		}
 
+			if (transform.position != targetPosition)
+			{
+				Vector3 diff = targetPosition - transform.position;
+				Vector3 moveDir = diff.normalized * 30 * Time.deltaTime;
+				if (moveDir.sqrMagnitude < diff.magnitude)
+					ch.Move(moveDir);
+				else
+					ch.Move(diff);
+			}
+
+		}
 		ch.Move(velocity * Time.deltaTime);
+
 	}
 
 
