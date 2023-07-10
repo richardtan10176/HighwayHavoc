@@ -32,12 +32,22 @@ public class StoreMenuController : MonoBehaviour
 
 
     //for coin popup menu
-    public GameObject popupMenu;
-    public Button exitPopupButton;
+    public GameObject popupMenuGem;
+    public Button exitGemPopupButton;
     public Button buyMoreGems;
 
+    //for car popup menu
+    public GameObject popupMenuCar;
+    public Button exitCarPopupButton;
+    public Button confirm;
+    public GameObject carNameTxt;
+    int carIndexBeingPurchased;
+    int costOfCarBeingPurchased;
+    string nameOfCarBeingPurchased;
 
-    private void Awake()
+
+
+    void Awake()
     {
         click = this.GetComponent<AudioSource>();
     }
@@ -91,8 +101,11 @@ public class StoreMenuController : MonoBehaviour
         buy5000coins.onClick.AddListener(addCoins5000);
         buy10000coins.onClick.AddListener(addCoins10000);
 
-        exitPopupButton.onClick.AddListener(closePopup);
+        exitGemPopupButton.onClick.AddListener(closePopupGem);
         buyMoreGems.onClick.AddListener(openGemMenu);
+
+        exitCarPopupButton.onClick.AddListener(closePopupCar);
+        confirm.onClick.AddListener(purchaseCar);
 
         playButton.onClick.AddListener(startGame);
 
@@ -116,209 +129,240 @@ public class StoreMenuController : MonoBehaviour
         }
         void activateCar2()
         {
+            carIndexBeingPurchased = 1;
+            costOfCarBeingPurchased = 250;
+            nameOfCarBeingPurchased = "Mitsubishi Lancer GSR";
             if(IAPcontroller.mainPlayer.coins >= 250)
             {
-                if(IAPcontroller.mainPlayer.car1 == 0)
+                if(IAPcontroller.mainPlayer.car1 == 0) //verify car has not already been purchased
                 {
-                    IAPcontroller.mainPlayer.removeCoins(250);
-                    carParent.transform.GetChild(1).GetChild(5).gameObject.SetActive(false);
-                    IAPcontroller.mainPlayer.car1 = 1;
-                    IAPcontroller.mainPlayer.Save();
-
+                    openPopupCar();
                 }
             }
             else
             {
-                openPopup();
+                openPopupGem();
                 return;
             }
             click.Play();
-            car2select.SetActive(true);
-            PlayerPrefs.SetInt("playerCar", 2);
-            car1select.SetActive(false);
-            car3select.SetActive(false);
-            car4select.SetActive(false);
-            car5select.SetActive(false);
-            car6select.SetActive(false);
-            car7select.SetActive(false);
-            car8select.SetActive(false);
+            if (IAPcontroller.mainPlayer.car1 == 1)
+            {
+                car2select.SetActive(true);
+                PlayerPrefs.SetInt("playerCar", 2);
+                car1select.SetActive(false);
+                car3select.SetActive(false);
+                car4select.SetActive(false);
+                car5select.SetActive(false);
+                car6select.SetActive(false);
+                car7select.SetActive(false);
+                car8select.SetActive(false);
+            }
         }
+
+
         void activateCar3()
         {
+            carIndexBeingPurchased = 2;
+            costOfCarBeingPurchased = 500;
+            nameOfCarBeingPurchased = "Ford RS 200";
             if (IAPcontroller.mainPlayer.coins >= 500)
             {
                 if (IAPcontroller.mainPlayer.car2 == 0)
                 {
-                    IAPcontroller.mainPlayer.removeCoins(500);
-                    carParent.transform.GetChild(2).GetChild(5).gameObject.SetActive(false);
-                    IAPcontroller.mainPlayer.car2 = 1;
-                    IAPcontroller.mainPlayer.Save();
+                    openPopupCar();
                 }
-
             }
             else
             {
-                openPopup();
+                openPopupGem();
                 return;
             }
             click.Play();
-            car3select.SetActive(true);
-            PlayerPrefs.SetInt("playerCar", 3);
-
-            car2select.SetActive(false);
-            car1select.SetActive(false);
-            car4select.SetActive(false);
-            car5select.SetActive(false);
-            car6select.SetActive(false);
-            car7select.SetActive(false);
-            car8select.SetActive(false);
+            if (IAPcontroller.mainPlayer.car2 == 1)
+            {
+                car3select.SetActive(true);
+                PlayerPrefs.SetInt("playerCar", 3);
+                car2select.SetActive(false);
+                car1select.SetActive(false);
+                car4select.SetActive(false);
+                car5select.SetActive(false);
+                car6select.SetActive(false);
+                car7select.SetActive(false);
+                car8select.SetActive(false);
+            }
 
         }
+
+
         void activateCar4()
         {
+            carIndexBeingPurchased = 3;
+            costOfCarBeingPurchased = 1000;
+            nameOfCarBeingPurchased = "Citroeen Xsaara WRC";
             if (IAPcontroller.mainPlayer.coins >= 1000)
             {
                 if (IAPcontroller.mainPlayer.car3 == 0)
                 {
-                    IAPcontroller.mainPlayer.removeCoins(1000);
-                    carParent.transform.GetChild(3).GetChild(5).gameObject.SetActive(false);
-                    IAPcontroller.mainPlayer.car3 = 1;
-                    IAPcontroller.mainPlayer.Save();
+                    openPopupCar();
                 }
             }
             else
             {
-                openPopup();
+                openPopupGem();
                 return;
             }
             click.Play();
-            car4select.SetActive(true);
-            PlayerPrefs.SetInt("playerCar", 4);
+            if (IAPcontroller.mainPlayer.car3 == 1)
+            {
+                car4select.SetActive(true);
+                PlayerPrefs.SetInt("playerCar", 4);
 
-            car2select.SetActive(false);
-            car3select.SetActive(false);
-            car1select.SetActive(false);
-            car5select.SetActive(false);
-            car6select.SetActive(false);
-            car7select.SetActive(false);
-            car8select.SetActive(false);
+                car2select.SetActive(false);
+                car3select.SetActive(false);
+                car1select.SetActive(false);
+                car5select.SetActive(false);
+                car6select.SetActive(false);
+                car7select.SetActive(false);
+                car8select.SetActive(false);
+            }
         }
+
+
         void activateCar5()
         {
+            carIndexBeingPurchased = 4;
+            costOfCarBeingPurchased = 1750;
+            nameOfCarBeingPurchased = "Fiat 131";
             if (IAPcontroller.mainPlayer.coins >= 1750)
             {
                 if (IAPcontroller.mainPlayer.car4 == 0)
                 {
-                    IAPcontroller.mainPlayer.removeCoins(1750);
-                    carParent.transform.GetChild(4).GetChild(5).gameObject.SetActive(false);
-                    IAPcontroller.mainPlayer.car4 = 1;
-                    IAPcontroller.mainPlayer.Save();
+                    openPopupCar();
                 }
             }
             else
             {
-                openPopup();
+                openPopupGem();
                 return;
             }
             click.Play();
-            car5select.SetActive(true);
-            PlayerPrefs.SetInt("playerCar", 5);
+            if (IAPcontroller.mainPlayer.car4 == 1)
+            {
+                car5select.SetActive(true);
+                PlayerPrefs.SetInt("playerCar", 5);
 
-            car2select.SetActive(false);
-            car3select.SetActive(false);
-            car4select.SetActive(false);
-            car1select.SetActive(false);
-            car6select.SetActive(false);
-            car7select.SetActive(false);
-            car8select.SetActive(false);
+                car2select.SetActive(false);
+                car3select.SetActive(false);
+                car4select.SetActive(false);
+                car1select.SetActive(false);
+                car6select.SetActive(false);
+                car7select.SetActive(false);
+                car8select.SetActive(false);
+            }
         }
+
+
         void activateCar6()
         {
+            carIndexBeingPurchased = 5;
+            costOfCarBeingPurchased = 2800;
+            nameOfCarBeingPurchased = "Subaruu Impreeza WRC";
             if (IAPcontroller.mainPlayer.coins >= 2800)
             {
                 if (IAPcontroller.mainPlayer.car5 == 0)
                 {
-                    IAPcontroller.mainPlayer.removeCoins(2800);
-                    carParent.transform.GetChild(5).GetChild(5).gameObject.SetActive(false);
-                    IAPcontroller.mainPlayer.car5 = 1;
-                    IAPcontroller.mainPlayer.Save();
+                    openPopupCar();
                 }
             }
             else
             {
-                openPopup();
+                openPopupGem();
                 return;
             }
             click.Play();
-            car6select.SetActive(true);
-            PlayerPrefs.SetInt("playerCar", 6);
+            if (IAPcontroller.mainPlayer.car5 == 1)
+            {
+                car6select.SetActive(true);
+                PlayerPrefs.SetInt("playerCar", 6);
 
-            car2select.SetActive(false);
-            car3select.SetActive(false);
-            car4select.SetActive(false);
-            car5select.SetActive(false);
-            car1select.SetActive(false);
-            car7select.SetActive(false);
-            car8select.SetActive(false);
+                car2select.SetActive(false);
+                car3select.SetActive(false);
+                car4select.SetActive(false);
+                car5select.SetActive(false);
+                car1select.SetActive(false);
+                car7select.SetActive(false);
+                car8select.SetActive(false);
+            }
         }
+
+
         void activateCar7()
         {
+            carIndexBeingPurchased = 6;
+            costOfCarBeingPurchased = 5000;
+            nameOfCarBeingPurchased = "MG Metro 6R4";
             if (IAPcontroller.mainPlayer.coins >= 5000)
             {
                 if (IAPcontroller.mainPlayer.car6 == 0)
                 {
-                    IAPcontroller.mainPlayer.removeCoins(5000);
-                    carParent.transform.GetChild(6).GetChild(5).gameObject.SetActive(false);
-                    IAPcontroller.mainPlayer.car6 = 1;
-                    IAPcontroller.mainPlayer.Save();
+                    openPopupCar();
                 }
             }
             else
             {
-                openPopup();
+                openPopupGem();
                 return;
             }
             click.Play();
-            car7select.SetActive(true);
-            PlayerPrefs.SetInt("playerCar", 7);
+            if (IAPcontroller.mainPlayer.car6 == 1)
+            {
+                car7select.SetActive(true);
+                PlayerPrefs.SetInt("playerCar", 7);
 
-            car2select.SetActive(false);
-            car3select.SetActive(false);
-            car4select.SetActive(false);
-            car5select.SetActive(false);
-            car6select.SetActive(false);
-            car1select.SetActive(false);
-            car8select.SetActive(false);
+                car2select.SetActive(false);
+                car3select.SetActive(false);
+                car4select.SetActive(false);
+                car5select.SetActive(false);
+                car6select.SetActive(false);
+                car1select.SetActive(false);
+                car8select.SetActive(false);
+            }
         }
+
+
         void activateCar8()
         {
+            carIndexBeingPurchased = 7;
+            nameOfCarBeingPurchased = "Citroeen C4 WRC";
             if (IAPcontroller.mainPlayer.gems >= 250)
             {
                 if (IAPcontroller.mainPlayer.car7 == 0)
                 {
-                    IAPcontroller.mainPlayer.removeGems(250);
-                    carParent.transform.GetChild(7).GetChild(5).gameObject.SetActive(false);
-                    IAPcontroller.mainPlayer.car7 = 1;
-                    IAPcontroller.mainPlayer.Save();
+                    openPopupCar();
                 }
             }
             else
             {
-                openPopup();
+                openPopupGem();
                 return;
             }
             click.Play();
-            car8select.SetActive(true);
-            PlayerPrefs.SetInt("playerCar", 8);
+            if (IAPcontroller.mainPlayer.car7 == 1)
+            {
+                car8select.SetActive(true);
+                PlayerPrefs.SetInt("playerCar", 8);
 
-            car2select.SetActive(false);
-            car3select.SetActive(false);
-            car4select.SetActive(false);
-            car5select.SetActive(false);
-            car6select.SetActive(false);
-            car7select.SetActive(false);
-            car1select.SetActive(false);
+                car2select.SetActive(false);
+                car3select.SetActive(false);
+                car4select.SetActive(false);
+                car5select.SetActive(false);
+                car6select.SetActive(false);
+                car7select.SetActive(false);
+                car1select.SetActive(false);
+            }
         }
+
+
         void returnToMenu()
         {
             if (CarStore.activeSelf)
@@ -339,7 +383,7 @@ public class StoreMenuController : MonoBehaviour
             mainMenu.SetActive(false);
             coinStore.SetActive(false);
             CarStore.SetActive(false);
-            closePopup();
+            closePopupGem();
 
             gemStore.SetActive(true);
             returnToMainMenu.transform.parent.gameObject.SetActive(true);
@@ -364,13 +408,25 @@ public class StoreMenuController : MonoBehaviour
             CarStore.SetActive(true);
             returnToMainMenu.transform.parent.gameObject.SetActive(true);
         }
-        void openPopup()
+        void openPopupGem()
         {
-            popupMenu.SetActive(true);
+            popupMenuGem.SetActive(true);
         }
-        void closePopup()
+        void closePopupGem()
         {
-            popupMenu.SetActive(false);
+            popupMenuGem.SetActive(false);
+            click.Play();
+        }
+        void openPopupCar()
+        {
+            popupMenuCar.SetActive(true);
+            carNameTxt.GetComponent<TMPro.TextMeshProUGUI>().text = nameOfCarBeingPurchased;
+
+        }
+        void closePopupCar()
+        {
+            popupMenuCar.SetActive(false);
+            click.Play();
         }
 
 
@@ -381,11 +437,11 @@ public class StoreMenuController : MonoBehaviour
             //give player coins, but check if player has enough first, else bring up insufficient gems popup
             if (IAPcontroller.mainPlayer.gems < 100)
             {
-                openPopup();
+                openPopupGem();
             }
             else
             {
-               
+                
                 IAPcontroller.mainPlayer.addCoins(1000);
                 IAPcontroller.mainPlayer.removeGems(100);
             }
@@ -398,7 +454,7 @@ public class StoreMenuController : MonoBehaviour
             //give player coins, but check if player has enough first, else bring up insufficient gems popup
             if (IAPcontroller.mainPlayer.gems < 500)
             {
-                openPopup();
+                openPopupGem();
             }
             else
             {
@@ -413,7 +469,7 @@ public class StoreMenuController : MonoBehaviour
             //give player coins, but check if player has enough first, else bring up insufficient gems popup
             if (IAPcontroller.mainPlayer.gems < 1000)
             {
-                openPopup();
+                openPopupGem();
             }
             else
             {
@@ -421,6 +477,119 @@ public class StoreMenuController : MonoBehaviour
                 IAPcontroller.mainPlayer.addCoins(10000);
                 IAPcontroller.mainPlayer.removeGems(1000);
             }
+        }
+        void purchaseCar()
+        {
+            if(carIndexBeingPurchased == 7)
+            {
+                IAPcontroller.mainPlayer.removeGems(250);
+                carParent.transform.GetChild(7).GetChild(5).gameObject.SetActive(false);
+                IAPcontroller.mainPlayer.car7 = 1;
+
+                car8select.SetActive(true);
+                PlayerPrefs.SetInt("playerCar", 8);
+
+                car2select.SetActive(false);
+                car3select.SetActive(false);
+                car4select.SetActive(false);
+                car5select.SetActive(false);
+                car6select.SetActive(false);
+                car7select.SetActive(false);
+                car1select.SetActive(false);
+
+                IAPcontroller.mainPlayer.Save();
+                popupMenuCar.SetActive(false);
+                return;
+            }
+            
+
+            IAPcontroller.mainPlayer.removeCoins(costOfCarBeingPurchased);
+            carParent.transform.GetChild(carIndexBeingPurchased).GetChild(5).gameObject.SetActive(false);
+            if(carIndexBeingPurchased == 1) 
+            {
+                IAPcontroller.mainPlayer.car1 = 1;
+                car2select.SetActive(true);
+                PlayerPrefs.SetInt("playerCar", 2);
+                car1select.SetActive(false);
+                car3select.SetActive(false);
+                car4select.SetActive(false);
+                car5select.SetActive(false);
+                car6select.SetActive(false);
+                car7select.SetActive(false);
+                car8select.SetActive(false);
+            }
+            if (carIndexBeingPurchased == 2)
+            {
+                IAPcontroller.mainPlayer.car2 = 1;
+                car3select.SetActive(true);
+                PlayerPrefs.SetInt("playerCar", 3);
+                car2select.SetActive(false);
+                car1select.SetActive(false);
+                car4select.SetActive(false);
+                car5select.SetActive(false);
+                car6select.SetActive(false);
+                car7select.SetActive(false);
+                car8select.SetActive(false);
+            }
+            if (carIndexBeingPurchased == 3)
+            {
+                IAPcontroller.mainPlayer.car3 = 1;
+                car4select.SetActive(true);
+                PlayerPrefs.SetInt("playerCar", 4);
+
+                car2select.SetActive(false);
+                car3select.SetActive(false);
+                car1select.SetActive(false);
+                car5select.SetActive(false);
+                car6select.SetActive(false);
+                car7select.SetActive(false);
+                car8select.SetActive(false);
+            }
+            if (carIndexBeingPurchased == 4)
+            {
+                IAPcontroller.mainPlayer.car4 = 1;
+                car5select.SetActive(true);
+                PlayerPrefs.SetInt("playerCar", 5);
+
+                car2select.SetActive(false);
+                car3select.SetActive(false);
+                car4select.SetActive(false);
+                car1select.SetActive(false);
+                car6select.SetActive(false);
+                car7select.SetActive(false);
+                car8select.SetActive(false);
+            }
+            if (carIndexBeingPurchased == 5)
+            {
+                IAPcontroller.mainPlayer.car5 = 1;
+                car6select.SetActive(true);
+                PlayerPrefs.SetInt("playerCar", 6);
+
+                car2select.SetActive(false);
+                car3select.SetActive(false);
+                car4select.SetActive(false);
+                car5select.SetActive(false);
+                car1select.SetActive(false);
+                car7select.SetActive(false);
+                car8select.SetActive(false);
+            }
+            if (carIndexBeingPurchased == 6)
+            {
+                IAPcontroller.mainPlayer.car6 = 1;
+                car7select.SetActive(true);
+                PlayerPrefs.SetInt("playerCar", 7);
+
+                car2select.SetActive(false);
+                car3select.SetActive(false);
+                car4select.SetActive(false);
+                car5select.SetActive(false);
+                car6select.SetActive(false);
+                car1select.SetActive(false);
+                car8select.SetActive(false);
+            }
+
+            IAPcontroller.mainPlayer.Save();
+            popupMenuCar.SetActive(false);
         }
         void startGame()
         {
