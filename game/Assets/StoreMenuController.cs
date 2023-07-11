@@ -15,6 +15,10 @@ public class StoreMenuController : MonoBehaviour
     public Button goToCarStore;
 
     public static AudioSource click;
+    public static AudioSource success;
+    public GameObject clickSource;
+    public GameObject successSource;
+
 
     public Button buy1000coins;
     public Button buy5000coins;
@@ -46,10 +50,10 @@ public class StoreMenuController : MonoBehaviour
     string nameOfCarBeingPurchased;
 
 
-
     void Awake()
     {
-        click = this.GetComponent<AudioSource>();
+        click = clickSource.GetComponent<AudioSource>();
+        success = successSource.GetComponent<AudioSource>();
     }
     // Start is called before the first frame update
     void Start() {
@@ -444,6 +448,7 @@ public class StoreMenuController : MonoBehaviour
                 
                 IAPcontroller.mainPlayer.addCoins(1000);
                 IAPcontroller.mainPlayer.removeGems(100);
+                success.Play();
             }
             
            
@@ -461,6 +466,7 @@ public class StoreMenuController : MonoBehaviour
                
                 IAPcontroller.mainPlayer.addCoins(5000);
                 IAPcontroller.mainPlayer.removeGems(500);
+                success.Play();
             }
         }
         void addCoins10000()
@@ -476,10 +482,12 @@ public class StoreMenuController : MonoBehaviour
                 
                 IAPcontroller.mainPlayer.addCoins(10000);
                 IAPcontroller.mainPlayer.removeGems(1000);
+                success.Play();
             }
         }
         void purchaseCar()
         {
+            click.Play();
             if(carIndexBeingPurchased == 7)
             {
                 IAPcontroller.mainPlayer.removeGems(250);
