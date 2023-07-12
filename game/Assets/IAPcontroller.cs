@@ -50,7 +50,7 @@ public class IAPcontroller : MonoBehaviour
         }
     }
     public void OnPurchaseFailed(Product product, PurchaseFailureReason reason)
-    {
+    { 
         Debug.Log("Purchase of " + product.definition.id + " failed due to " + reason);
     }
     
