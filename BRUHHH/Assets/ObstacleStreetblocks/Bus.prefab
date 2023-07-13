@@ -177,9 +177,10 @@ GameObject:
   - component: {fileID: 6170815984430995250}
   - component: {fileID: 6180915645193068194}
   - component: {fileID: 6188224896012279330}
+  - component: {fileID: 1957682338204910958}
   m_Layer: 0
   m_Name: Bus
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -252,6 +253,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1957682338204910958
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6175818687966623438}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: e6ebfeb6367abd448a896b5de2abb3a1, type: 3}
 --- !u!1 &6176200649412330660
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,7 +443,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6170830180459231250}
   - component: {fileID: 6424970434504126504}
-  - component: {fileID: 6638898005001491082}
   m_Layer: 0
   m_Name: Bus
   m_TagString: Obstacle
@@ -473,19 +487,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
---- !u!65 &6638898005001491082
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6176559726539147842}
-  m_Material: {fileID: 13400000, guid: 430fbe2b70886e34cabc735fd8793296, type: 2}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.5801063, y: 4.592829, z: 15.542944}
-  m_Center: {x: -0.06788039, y: 1.317867, z: -0.084843636}
 --- !u!1 &6176686196134195002
 GameObject:
   m_ObjectHideFlags: 0

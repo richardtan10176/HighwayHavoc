@@ -12,7 +12,8 @@ public class CollisionDetection : MonoBehaviour
 		{
 			player.GetComponent<Playermovement>().enabled = false;
 			playermovement.forwardSpeed = 0;
-			playermovement.particle.SetActive(true);
+			playermovement.explosion.SetActive(true);
+			playermovement.fire.SetActive(true);
 		}
 	}
 }

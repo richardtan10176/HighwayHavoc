@@ -17,7 +17,8 @@ public class Playermovement : MonoBehaviour
 	[SerializeField] private float gravityMulti = 2.0f;
 
 
-	[SerializeField] public GameObject particle;
+	[SerializeField] public GameObject fire;
+	public GameObject explosion;
 
 	public static int NumOfCoins;
 
@@ -133,7 +134,7 @@ public class Playermovement : MonoBehaviour
 
 	private void ParticleSpawn()
 	{
-		particle.SetActive(true);
+		fire.SetActive(true);
 	}
 
 }
