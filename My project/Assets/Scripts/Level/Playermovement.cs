@@ -4,26 +4,34 @@ using UnityEngine;
 public class Playermovement : MonoBehaviour
 {
 	private CharacterController ch;
-	public float forwardSpeed;
-	public bool playerMove;
+	public float forwardSpeed = 8;
+	public bool playerMove = true;
 
-	public float maxSpeed;
+	public float maxSpeed = 40f;
 
 	private Vector3 velocity;
 	private int desiredlane = 1;
-	public float laneDistance = 4;
+	public float laneDistance = 2.15f;
 	private int privlane;
 	private float grav = -9.81f;
 	[SerializeField] private float gravityMulti = 2.0f;
 
 
-	[SerializeField] public GameObject fire;
+	public GameObject fire;
 	public GameObject explosion;
 
 	public static int NumOfCoins;
 
 	private void Start()
 	{
+		fire = GameObject.Find("Fire").transform.GetChild(0).gameObject;
+		explosion = GameObject.Find("Explosion").transform.GetChild(0).gameObject;
+
+		fire.transform.SetParent(SpawnPlayerCar.playerCar.transform);
+		explosion.transform.SetParent(SpawnPlayerCar.playerCar.transform);
+		
+
+
 		NumOfCoins = 0;
 		playerMove = true;
 		desiredlane = Random.Range(0, 3);

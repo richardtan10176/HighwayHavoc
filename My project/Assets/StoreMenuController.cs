@@ -603,7 +603,7 @@ public class StoreMenuController : MonoBehaviour
         void startGame()
         {
             //switch to game scene
-            SceneManager.LoadScene(1, LoadSceneMode.Additive);
+            SceneManager.LoadScene(1);
             this.GetComponent<AudioListener>().gameObject.SetActive(false);
             click.Play(); 
         }

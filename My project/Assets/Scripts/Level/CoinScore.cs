@@ -6,11 +6,16 @@ using UnityEngine.UI;
 
 public class CoinScore : MonoBehaviour
 {
-    public Transform player;
-    public TextMeshProUGUI Coins;
+    //public Transform player;
+    TextMeshProUGUI Coins;
 
-	// Update is called once per frame
-	private void OnTriggerEnter(Collider other)
+    void Start()
+    {
+        Coins = GameObject.Find("Coins").GetComponent<TextMeshProUGUI>();   
+    }
+
+    // Update is called once per frame
+    private void OnTriggerEnter(Collider other)
 	{
 		if (other.tag == "Coin")
 		{

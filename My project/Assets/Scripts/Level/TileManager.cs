@@ -20,7 +20,7 @@ public class TileManager : MonoBehaviour
     {
      
         activeTiles = new List<GameObject>();
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        playerTransform = GameObject.Find("playerCar").transform;
 
 
 
