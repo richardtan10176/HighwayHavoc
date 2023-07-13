@@ -598,19 +598,19 @@ public class StoreMenuController : MonoBehaviour
             }
 
             IAPcontroller.mainPlayer.Save();
+            success.Play();
             popupMenuCar.SetActive(false);
         }
         void startGame()
         {
             //switch to game scene
             SceneManager.LoadScene(1);
-            this.GetComponent<AudioListener>().gameObject.SetActive(false);
             click.Play(); 
         }
 
         static void updateHighScore(GameObject text)
         {
-            text.GetComponent<TMPro.TextMeshProUGUI>().text = PlayerPrefs.GetInt("HighScore").ToString();
+            text.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("HighScore").ToString();
         }
     }
    
