@@ -6,9 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class Score : MonoBehaviour
 {
-    public Transform player;
+    Transform player;
     public TextMeshProUGUI score;
     public int pScore;
+    private void Start()
+    {
+        player = GameObject.Find("playerCar").transform;
+    }
     // Update is called once per frame
     void Update()
     {
