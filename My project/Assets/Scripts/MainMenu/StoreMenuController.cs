@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -25,6 +26,8 @@ public class StoreMenuController : MonoBehaviour
     public Button buy5000coins;
     public Button buy10000coins;
     public Button playButton;
+
+
     public GameObject highScoreTxt;
 
     public GameObject mainMenu, CarStore, gemStore, coinStore;
@@ -55,9 +58,31 @@ public class StoreMenuController : MonoBehaviour
     {
         click = clickSource.GetComponent<AudioSource>();
         success = successSource.GetComponent<AudioSource>();
+
+
+
+
     }
     // Start is called before the first frame update
     void Start() {
+
+        Debug.Log("Coins: " + PlayerPrefs.GetInt("coinScore"));
+
+
+
+        IAPcontroller.mainPlayer.addCoins(PlayerPrefs.GetInt("coinScore"));
+        PlayerPrefs.SetInt("coinScore",0);
+
+        if (PlayerPrefs.GetInt("highScore") < PlayerPrefs.GetInt("score"))
+        {
+            highScoreTxt.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("score").ToString();
+            PlayerPrefs.SetInt("highScore", PlayerPrefs.GetInt("score"));
+            PlayerPrefs.SetInt("score", 0);
+        }
+        else
+        {
+            highScoreTxt.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("highScore").ToString();
+        }
 
         if (!PlayerPrefs.HasKey("firsttime")) //first time in game
         {
@@ -67,9 +92,8 @@ public class StoreMenuController : MonoBehaviour
             //set default selected car to the first car
             car1select.SetActive(true);
             PlayerPrefs.SetInt("playerCar", 1);
+            
 
-
-            PlayerPrefs.SetInt("HighScore", 0);
 
 
 
@@ -77,8 +101,6 @@ public class StoreMenuController : MonoBehaviour
         else
         {
             carParent.transform.GetChild(PlayerPrefs.GetInt("playerCar")-1).GetChild(4).gameObject.SetActive(true);
-            updateHighScore(highScoreTxt);
-
         }
 
         StartCoroutine(LateStart(0.1f));
@@ -608,10 +630,6 @@ public class StoreMenuController : MonoBehaviour
             click.Play(); 
         }
 
-        static void updateHighScore(GameObject text)
-        {
-            text.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("HighScore").ToString();
-        }
     }
    
     IEnumerator LateStart(float waitTime)

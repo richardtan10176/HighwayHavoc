@@ -50,6 +50,7 @@ public class Player : MonoBehaviour
     {
         coins += amount;
         Save();
+        Debug.Log("adding");
         coinsText.text = coins.ToString();
     }
     public void removeGems(int amount)

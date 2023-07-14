@@ -8,7 +8,7 @@ public class Score : MonoBehaviour
 {
     Transform player;
     public TextMeshProUGUI score;
-    public int pScore;
+    public static int pScore;
     private void Start()
     {
         player = GameObject.Find("playerCar").transform;

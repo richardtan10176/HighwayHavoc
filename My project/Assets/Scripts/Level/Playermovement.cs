@@ -42,10 +42,12 @@ public class Playermovement : MonoBehaviour
 
 	private void Update()
 	{
+        if (!playerMove)
+        {
+			velocity = Vector3.zero;
+        }
 
-	
 		velocity.y += grav *  Time.deltaTime;
-
 		if (playerMove == true)
 		{
 
@@ -133,16 +135,6 @@ public class Playermovement : MonoBehaviour
 		}
 		ch.Move(velocity * Time.deltaTime);
 
-	}
-
-
-
-
-	
-
-	private void ParticleSpawn()
-	{
-		fire.SetActive(true);
 	}
 
 }
