@@ -8,15 +8,29 @@ public class UIController : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject DeathScreen;
+
     public Button retryButton;
     public Button returnToMenuButton;
+
+    public Button respawnButton;
     void Start()
     {
+        respawnButton.onClick.AddListener(respawn);
         retryButton.onClick.AddListener(retry);
         returnToMenuButton.onClick.AddListener(returnToMenu);
     }
 
     void retry()
+    {
+        SceneManager.LoadScene(1);
+    }
+    
+    void returnToMenu()
+    {
+        DeathScreen.SetActive(false);
+        SceneManager.LoadScene(0);
+    }
+    void respawn()
     {
         DeathScreen.SetActive(false);
         SpawnPlayerCar.playerCar.GetComponent<Rigidbody>().isKinematic = true;
@@ -30,12 +44,6 @@ public class UIController : MonoBehaviour
         InvokeRepeating("flash", 0, 0.25f);
 
     }
-    void returnToMenu()
-    {
-        DeathScreen.SetActive(false);
-        SceneManager.LoadScene(0);
-    }
-
     void flash()
     {
         SpawnPlayerCar.playerCar.transform.GetChild(0).GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = !SpawnPlayerCar.playerCar.transform.GetChild(0).GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled;
