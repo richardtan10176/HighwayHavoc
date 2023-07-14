@@ -23,8 +23,8 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        gemsText = gemsObj.GetComponent<TMPro.TextMeshProUGUI>();
-        coinsText = coinsObj.GetComponent<TMPro.TextMeshProUGUI>();
+        gemsText = gemsObj.GetComponent<TextMeshProUGUI>();
+        coinsText = coinsObj.GetComponent<TextMeshProUGUI>();
 
         gemsText.text = IAPcontroller.mainPlayer.gems.ToString();
         coinsText.text = IAPcontroller.mainPlayer.coins.ToString();

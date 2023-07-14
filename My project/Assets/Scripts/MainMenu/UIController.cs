@@ -13,12 +13,15 @@ public class UIController : MonoBehaviour
     public Button retryButton;
     public Button returnToMenuButton;
 
+    public GameObject InsFunds;
+    public Button closePopupButton;
     public Button respawnButton;
     void Start()
     {
         respawnButton.onClick.AddListener(respawn);
         retryButton.onClick.AddListener(retry);
         returnToMenuButton.onClick.AddListener(returnToMenu);
+        closePopupButton.onClick.AddListener(closePopup);
     }
 
     void retry()
@@ -39,17 +42,30 @@ public class UIController : MonoBehaviour
     }
     void respawn()
     {
-        DeathScreen.SetActive(false);
-        RespawnScreen.SetActive(false);
-        SpawnPlayerCar.playerCar.GetComponent<Rigidbody>().isKinematic = true;
-        SpawnPlayerCar.playerCar.GetComponent<Playermovement>().playerMove = true;
-        SpawnPlayerCar.playerCar.GetComponent<Playermovement>().explosion.SetActive(false);
-        SpawnPlayerCar.playerCar.GetComponent<Playermovement>().fire.SetActive(false);
-        SpawnPlayerCar.playerCar.GetComponent<Playermovement>().forwardSpeed = 8;
-        SpawnPlayerCar.playerCar.GetComponent<CollisionDetection>().hasRespawned = true;
-        StartCoroutine(DisableCrashing(5.0f));
-        InvokeRepeating("flash", 0, 0.25f);
+        if(loadPlayerData.gemsAmount >= 20)
+        {
+            DeathScreen.SetActive(false);
+            RespawnScreen.SetActive(false);
+            SpawnPlayerCar.playerCar.GetComponent<Rigidbody>().isKinematic = true;
+            SpawnPlayerCar.playerCar.GetComponent<Playermovement>().playerMove = true;
+            SpawnPlayerCar.playerCar.GetComponent<Playermovement>().explosion.SetActive(false);
+            SpawnPlayerCar.playerCar.GetComponent<Playermovement>().fire.SetActive(false);
+            SpawnPlayerCar.playerCar.GetComponent<Playermovement>().forwardSpeed = 8;
+            SpawnPlayerCar.playerCar.GetComponent<CollisionDetection>().hasRespawned = true;
+            StartCoroutine(DisableCrashing(5.0f));
+            InvokeRepeating("flash", 0, 0.25f);
+        }
+        else
+        {
+            InsFunds.SetActive(true);
+        }
+        
 
+    }
+    void closePopup()
+    {
+        Debug.Log("bruh");
+        InsFunds.SetActive(false);
     }
     void flash()
     {
