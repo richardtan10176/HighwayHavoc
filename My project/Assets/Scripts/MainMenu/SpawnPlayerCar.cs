@@ -29,7 +29,7 @@ public class SpawnPlayerCar : MonoBehaviour
 
         playerCar.AddComponent<BoxCollider>();
         playerCar.GetComponent<BoxCollider>().center = new Vector3(0, 0, 0);
-        playerCar.GetComponent<BoxCollider>().size = new Vector3(1.837f, 1, 4.19541f);
+        playerCar.GetComponent<BoxCollider>().size = new Vector3(1.5f, 1, 3.85f);
 
         playerCar.AddComponent<Rigidbody>();
         playerCar.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;

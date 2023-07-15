@@ -1671,8 +1671,8 @@ GameObject:
   - component: {fileID: 963194229}
   - component: {fileID: 963194230}
   - component: {fileID: 963194231}
-  - component: {fileID: 963194232}
   - component: {fileID: 963194233}
+  - component: {fileID: 963194234}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1804,7 +1804,19 @@ MonoBehaviour:
   - {fileID: 4091726968199336034, guid: 55268386996471c4cb34a6cec2831495, type: 3}
   - {fileID: 3944651074596733205, guid: 90fc4726fd9b5a24fa440274e53b10ef, type: 3}
   - {fileID: 8822369287922822335, guid: fd910f59d5ec15f429d3f183f098865f, type: 3}
---- !u!82 &963194232
+--- !u!114 &963194233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99d847774a03f454faf8daf9cdb691de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!82 &963194234
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1816,13 +1828,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5ee265ffa9aaa954db837dc32e75054c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.266
-  m_Pitch: -1.98
-  Loop: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 71
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1900,18 +1912,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &963194233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99d847774a03f454faf8daf9cdb691de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &997525521
 GameObject:
   m_ObjectHideFlags: 0
