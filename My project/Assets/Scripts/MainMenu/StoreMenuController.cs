@@ -65,6 +65,8 @@ public class StoreMenuController : MonoBehaviour
     }
     // Start is called before the first frame update
     void Start() {
+        //PlayerPrefs.DeleteAll();
+
 
         Debug.Log("Coins: " + PlayerPrefs.GetInt("coinScore"));
 
@@ -156,22 +158,10 @@ public class StoreMenuController : MonoBehaviour
         }
         void activateCar2()
         {
+            click.Play();
             carIndexBeingPurchased = 1;
             costOfCarBeingPurchased = 250;
             nameOfCarBeingPurchased = "Mitsubishi Lancer GSR";
-            if(IAPcontroller.mainPlayer.coins >= 250)
-            {
-                if(IAPcontroller.mainPlayer.car1 == 0) //verify car has not already been purchased
-                {
-                    openPopupCar();
-                }
-            }
-            else
-            {
-                openPopupGem();
-                return;
-            }
-            click.Play();
             if (IAPcontroller.mainPlayer.car1 == 1)
             {
                 car2select.SetActive(true);
@@ -183,18 +173,12 @@ public class StoreMenuController : MonoBehaviour
                 car6select.SetActive(false);
                 car7select.SetActive(false);
                 car8select.SetActive(false);
+                return;
             }
-        }
-
-
-        void activateCar3()
-        {
-            carIndexBeingPurchased = 2;
-            costOfCarBeingPurchased = 500;
-            nameOfCarBeingPurchased = "Ford RS 200";
-            if (IAPcontroller.mainPlayer.coins >= 500)
+            
+            if (IAPcontroller.mainPlayer.coins >= 250)
             {
-                if (IAPcontroller.mainPlayer.car2 == 0)
+                if(IAPcontroller.mainPlayer.car1 == 0) //verify car has not already been purchased
                 {
                     openPopupCar();
                 }
@@ -204,6 +188,16 @@ public class StoreMenuController : MonoBehaviour
                 openPopupGem();
                 return;
             }
+            
+
+        }
+
+
+        void activateCar3()
+        {
+            carIndexBeingPurchased = 2;
+            costOfCarBeingPurchased = 500;
+            nameOfCarBeingPurchased = "Ford RS 200";
             click.Play();
             if (IAPcontroller.mainPlayer.car2 == 1)
             {
@@ -216,19 +210,11 @@ public class StoreMenuController : MonoBehaviour
                 car6select.SetActive(false);
                 car7select.SetActive(false);
                 car8select.SetActive(false);
+                return;
             }
-
-        }
-
-
-        void activateCar4()
-        {
-            carIndexBeingPurchased = 3;
-            costOfCarBeingPurchased = 1000;
-            nameOfCarBeingPurchased = "Citroeen Xsaara WRC";
-            if (IAPcontroller.mainPlayer.coins >= 1000)
+            if (IAPcontroller.mainPlayer.coins >= 500)
             {
-                if (IAPcontroller.mainPlayer.car3 == 0)
+                if (IAPcontroller.mainPlayer.car2 == 0)
                 {
                     openPopupCar();
                 }
@@ -238,6 +224,16 @@ public class StoreMenuController : MonoBehaviour
                 openPopupGem();
                 return;
             }
+
+
+        }
+
+
+        void activateCar4()
+        {
+            carIndexBeingPurchased = 3;
+            costOfCarBeingPurchased = 1000;
+            nameOfCarBeingPurchased = "Citroeen Xsaara WRC";
             click.Play();
             if (IAPcontroller.mainPlayer.car3 == 1)
             {
@@ -251,18 +247,11 @@ public class StoreMenuController : MonoBehaviour
                 car6select.SetActive(false);
                 car7select.SetActive(false);
                 car8select.SetActive(false);
+                return;
             }
-        }
-
-
-        void activateCar5()
-        {
-            carIndexBeingPurchased = 4;
-            costOfCarBeingPurchased = 1750;
-            nameOfCarBeingPurchased = "Fiat 131";
-            if (IAPcontroller.mainPlayer.coins >= 1750)
+            if (IAPcontroller.mainPlayer.coins >= 1000)
             {
-                if (IAPcontroller.mainPlayer.car4 == 0)
+                if (IAPcontroller.mainPlayer.car3 == 0)
                 {
                     openPopupCar();
                 }
@@ -272,6 +261,15 @@ public class StoreMenuController : MonoBehaviour
                 openPopupGem();
                 return;
             }
+
+        }
+
+
+        void activateCar5()
+        {
+            carIndexBeingPurchased = 4;
+            costOfCarBeingPurchased = 1750;
+            nameOfCarBeingPurchased = "Fiat 131";
             click.Play();
             if (IAPcontroller.mainPlayer.car4 == 1)
             {
@@ -285,18 +283,11 @@ public class StoreMenuController : MonoBehaviour
                 car6select.SetActive(false);
                 car7select.SetActive(false);
                 car8select.SetActive(false);
+                return;
             }
-        }
-
-
-        void activateCar6()
-        {
-            carIndexBeingPurchased = 5;
-            costOfCarBeingPurchased = 2800;
-            nameOfCarBeingPurchased = "Subaruu Impreeza WRC";
-            if (IAPcontroller.mainPlayer.coins >= 2800)
+            if (IAPcontroller.mainPlayer.coins >= 1750)
             {
-                if (IAPcontroller.mainPlayer.car5 == 0)
+                if (IAPcontroller.mainPlayer.car4 == 0)
                 {
                     openPopupCar();
                 }
@@ -306,6 +297,15 @@ public class StoreMenuController : MonoBehaviour
                 openPopupGem();
                 return;
             }
+
+        }
+
+
+        void activateCar6()
+        {
+            carIndexBeingPurchased = 5;
+            costOfCarBeingPurchased = 2800;
+            nameOfCarBeingPurchased = "Subaruu Impreeza WRC";
             click.Play();
             if (IAPcontroller.mainPlayer.car5 == 1)
             {
@@ -319,18 +319,11 @@ public class StoreMenuController : MonoBehaviour
                 car1select.SetActive(false);
                 car7select.SetActive(false);
                 car8select.SetActive(false);
+                return;
             }
-        }
-
-
-        void activateCar7()
-        {
-            carIndexBeingPurchased = 6;
-            costOfCarBeingPurchased = 5000;
-            nameOfCarBeingPurchased = "MG Metro 6R4";
-            if (IAPcontroller.mainPlayer.coins >= 5000)
+            if (IAPcontroller.mainPlayer.coins >= 2800)
             {
-                if (IAPcontroller.mainPlayer.car6 == 0)
+                if (IAPcontroller.mainPlayer.car5 == 0)
                 {
                     openPopupCar();
                 }
@@ -340,6 +333,15 @@ public class StoreMenuController : MonoBehaviour
                 openPopupGem();
                 return;
             }
+
+        }
+
+
+        void activateCar7()
+        {
+            carIndexBeingPurchased = 6;
+            costOfCarBeingPurchased = 5000;
+            nameOfCarBeingPurchased = "MG Metro 6R4";
             click.Play();
             if (IAPcontroller.mainPlayer.car6 == 1)
             {
@@ -353,17 +355,11 @@ public class StoreMenuController : MonoBehaviour
                 car6select.SetActive(false);
                 car1select.SetActive(false);
                 car8select.SetActive(false);
+                return;
             }
-        }
-
-
-        void activateCar8()
-        {
-            carIndexBeingPurchased = 7;
-            nameOfCarBeingPurchased = "Citroeen C4 WRC";
-            if (IAPcontroller.mainPlayer.gems >= 250)
+            if (IAPcontroller.mainPlayer.coins >= 5000)
             {
-                if (IAPcontroller.mainPlayer.car7 == 0)
+                if (IAPcontroller.mainPlayer.car6 == 0)
                 {
                     openPopupCar();
                 }
@@ -373,6 +369,14 @@ public class StoreMenuController : MonoBehaviour
                 openPopupGem();
                 return;
             }
+
+        }
+
+
+        void activateCar8()
+        {
+            carIndexBeingPurchased = 7;
+            nameOfCarBeingPurchased = "Citroeen C4 WRC";
             click.Play();
             if (IAPcontroller.mainPlayer.car7 == 1)
             {
@@ -386,7 +390,21 @@ public class StoreMenuController : MonoBehaviour
                 car6select.SetActive(false);
                 car7select.SetActive(false);
                 car1select.SetActive(false);
+                return;
             }
+            if (IAPcontroller.mainPlayer.gems >= 250)
+            {
+                if (IAPcontroller.mainPlayer.car7 == 0)
+                {
+                    openPopupCar();
+                }
+            }
+            else
+            {
+                openPopupGem();
+                return;
+            }
+
         }
 
 
