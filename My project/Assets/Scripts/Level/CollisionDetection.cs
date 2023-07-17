@@ -21,7 +21,7 @@ public class CollisionDetection : MonoBehaviour
 		{
 			PlayerPrefs.SetInt("coinScore", Playermovement.NumOfCoins);
 			PlayerPrefs.SetInt("score", Score.pScore);
-			int randNum = Random.Range(3, 3);
+			int randNum = Random.Range(1, 5);
 			playermovement.playerMove = false;
 			
 			playermovement.fire.transform.position = SpawnPlayerCar.playerCar.transform.position + new Vector3(0, 0, 1);
