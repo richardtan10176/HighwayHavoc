@@ -19,6 +19,7 @@ public class CollisionDetection : MonoBehaviour
 	{
 		if (collision.gameObject.transform.tag == "Obstacle")
 		{
+
 			PlayerPrefs.SetInt("coinScore", PlayerPrefs.GetInt("coinScore") + Playermovement.NumOfCoins);
 			PlayerPrefs.SetInt("score", Score.pScore);
 			int randNum = Random.Range(1, 5);

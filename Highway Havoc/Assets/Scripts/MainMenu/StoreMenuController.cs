@@ -69,6 +69,8 @@ public class StoreMenuController : MonoBehaviour
 
 
 
+        IAPcontroller.mainPlayer.removeGems(PlayerPrefs.GetInt("gemsOwed"));
+        PlayerPrefs.SetInt("gemsOwed", 0);
 
         IAPcontroller.mainPlayer.addCoins(PlayerPrefs.GetInt("coinScore"));
         PlayerPrefs.SetInt("coinScore",0);

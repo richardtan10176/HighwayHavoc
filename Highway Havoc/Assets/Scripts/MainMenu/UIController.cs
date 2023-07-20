@@ -44,6 +44,7 @@ public class UIController : MonoBehaviour
     {
         if(loadPlayerData.gemsAmount >= 20)
         {
+            PlayerPrefs.SetInt("gemsOwed", 20);
             DeathScreen.SetActive(false);
             RespawnScreen.SetActive(false);
             SpawnPlayerCar.playerCar.GetComponent<Rigidbody>().isKinematic = true;
