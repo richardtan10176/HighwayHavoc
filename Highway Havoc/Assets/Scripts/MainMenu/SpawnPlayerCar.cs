@@ -28,8 +28,8 @@ public class SpawnPlayerCar : MonoBehaviour
         playerCar.GetComponent<CharacterController>().height = 4.83f;
 
         playerCar.AddComponent<BoxCollider>();
-        playerCar.GetComponent<BoxCollider>().center = new Vector3(0, 0, 0);
-        playerCar.GetComponent<BoxCollider>().size = new Vector3(1.5f, 1, 3.85f);
+        playerCar.GetComponent<BoxCollider>().center = new Vector3(0, 0, 0.1f);
+        playerCar.GetComponent<BoxCollider>().size = new Vector3(1.1f, 1, 3f);
 
         playerCar.AddComponent<Rigidbody>();
         playerCar.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
