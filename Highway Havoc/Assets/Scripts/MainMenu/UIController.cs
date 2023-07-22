@@ -16,12 +16,15 @@ public class UIController : MonoBehaviour
     public GameObject InsFunds;
     public Button closePopupButton;
     public Button respawnButton;
+    public showBannerAd showbannerad;
     void Start()
     {
         respawnButton.onClick.AddListener(respawn);
         retryButton.onClick.AddListener(retry);
         returnToMenuButton.onClick.AddListener(returnToMenu);
         closePopupButton.onClick.AddListener(closePopup);
+        showbannerad = GameObject.Find("AdDisplayObject").GetComponent<showBannerAd>();
+        showbannerad.ShowBannerAd();
     }
 
     void retry()
@@ -36,6 +39,7 @@ public class UIController : MonoBehaviour
     
     void returnToMenu()
     {
+        showbannerad.HideBannerAd();
         DeathScreen.SetActive(false);
         RespawnScreen.SetActive(false);
         SceneManager.LoadScene(0);
@@ -44,6 +48,7 @@ public class UIController : MonoBehaviour
     {
         if(loadPlayerData.gemsAmount >= 20)
         {
+            
             PlayerPrefs.SetInt("gemsOwed", 20);
             DeathScreen.SetActive(false);
             RespawnScreen.SetActive(false);
