@@ -62,8 +62,9 @@ public class ShowRewardedAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
         if (adUnitId.Equals(_adUnitId) && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
         {
             Debug.Log("Unity Ads Rewarded Ad Completed");
-            IAPcontroller.mainPlayer.addGems(20);
             // Grant a reward.
+            IAPcontroller.mainPlayer.addGems(Random.Range(1, 10));
+
         }
     }
 

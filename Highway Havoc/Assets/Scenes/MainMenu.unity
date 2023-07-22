@@ -4129,7 +4129,7 @@ GameObject:
   - component: {fileID: 597840108}
   - component: {fileID: 597840107}
   m_Layer: 5
-  m_Name: AdText
+  m_Name: AdPrompt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6294,6 +6294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d5b13cc2727b5341a0c0f9dac7edc51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ad: {fileID: 597840105}
 --- !u!1 &963251791
 GameObject:
   m_ObjectHideFlags: 0
