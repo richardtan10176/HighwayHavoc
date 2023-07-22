@@ -17,6 +17,7 @@ public class ShowRewardedAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
         #elif UNITY_ANDROID
                 _adUnitId = _androidAdUnitId;
         #endif
+
         // Disable the button until the ad is ready to show:
         //_showAdButton.interactable = false;
     }
@@ -29,7 +30,6 @@ public class ShowRewardedAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
     {
         // IMPORTANT! Only load content AFTER initialization (in this example, initialization is handled in a different script).
         Debug.Log("Loading Ad: " + _adUnitId);
-        Advertisement.Initialize(_adUnitId, this);
         Advertisement.Load(_adUnitId, this);
     }
 
@@ -38,11 +38,13 @@ public class ShowRewardedAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
     {
         Debug.Log("Ad Loaded: " + adUnitId);
 
-        // Configure the button to call the ShowAd() method when clicked:
-        Debug.Log("added listener");
-        _showAdButton.onClick.AddListener(ShowAd);
-        // Enable the button for users to click:
-        //_showAdButton.interactable = true;
+        if (adUnitId.Equals(_adUnitId))
+        {
+            // Configure the button to call the ShowAd() method when clicked:
+            _showAdButton.onClick.AddListener(ShowAd);
+            // Enable the button for users to click:
+            //_showAdButton.interactable = true;
+        }
     }
 
     // Implement a method to execute when the user clicks the button:
@@ -51,7 +53,6 @@ public class ShowRewardedAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
         // Disable the button:
         //_showAdButton.interactable = false;
         // Then show the ad:
-        Debug.Log("working");
         Advertisement.Show(_adUnitId, this);
     }
 

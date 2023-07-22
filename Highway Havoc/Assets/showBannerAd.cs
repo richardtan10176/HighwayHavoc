@@ -25,13 +25,14 @@ public class showBannerAd : MonoBehaviour
                 _adUnitId = _iOSAdUnitId;
         #elif UNITY_ANDROID
                 _adUnitId = _androidAdUnitId;
-        #endif
+#endif
 
         // Disable the button until an ad is ready to show:
-       // _showBannerButton.interactable = false;
-       // _hideBannerButton.interactable = false;
-
+        // _showBannerButton.interactable = false;
+        // _hideBannerButton.interactable = false;
         // Set the banner position:
+        HideBannerAd();
+
         Advertisement.Banner.SetPosition(_bannerPosition);
 
         // Configure the Load Banner button to call the LoadBanner() method when clicked:
@@ -96,7 +97,7 @@ public class showBannerAd : MonoBehaviour
     public void HideBannerAd()
     {
         // Hide the banner:
-        Advertisement.Banner.Hide();
+        Advertisement.Banner.Hide(true);
     }
 
     void OnBannerClicked() { }
