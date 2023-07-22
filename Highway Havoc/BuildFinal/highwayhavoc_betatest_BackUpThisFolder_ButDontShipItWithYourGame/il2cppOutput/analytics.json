@@ -7,7 +7,7 @@
     "option_extra_types_file_count": 0,
     "option_jobs": 12,
     "option_debug_assembly_name_count": 0,
-    "option_additional_cpp_count": 4,
+    "option_additional_cpp_count": 7,
     "option_emit_null_checks": true,
     "option_enable_stacktrace": false,
     "option_enable_deep_profiler": false,
