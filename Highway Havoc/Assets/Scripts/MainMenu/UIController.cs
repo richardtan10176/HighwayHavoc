@@ -40,6 +40,7 @@ public class UIController : MonoBehaviour
     void returnToMenu()
     {
         showbannerad.HideBannerAd();
+
         DeathScreen.SetActive(false);
         RespawnScreen.SetActive(false);
         SceneManager.LoadScene(0);

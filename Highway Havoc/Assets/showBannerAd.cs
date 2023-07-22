@@ -18,7 +18,7 @@ public class showBannerAd : MonoBehaviour
     [SerializeField] string _iOSAdUnitId = "Banner_iOS";
     string _adUnitId = null; // This will remain null for unsupported platforms.
 
-    void Start()
+    void Awake()
     {
         // Get the Ad Unit ID for the current platform:
         #if UNITY_IOS
@@ -31,7 +31,9 @@ public class showBannerAd : MonoBehaviour
         // _showBannerButton.interactable = false;
         // _hideBannerButton.interactable = false;
         // Set the banner position:
-        HideBannerAd();
+
+
+        //HideBannerAd();
 
         Advertisement.Banner.SetPosition(_bannerPosition);
 
@@ -97,7 +99,7 @@ public class showBannerAd : MonoBehaviour
     public void HideBannerAd()
     {
         // Hide the banner:
-        Advertisement.Banner.Hide(true);
+        Advertisement.Banner.Hide();
     }
 
     void OnBannerClicked() { }
