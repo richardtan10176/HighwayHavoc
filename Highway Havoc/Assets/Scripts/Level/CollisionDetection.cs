@@ -9,18 +9,20 @@ public class CollisionDetection : MonoBehaviour
 	Playermovement playermovement;
 	GameObject DeathScreen;
 	GameObject respawnScreen;
+	AudioSource crashSound;
 
     void Start()
     {
 		playermovement = this.GetComponent<Playermovement>();
 		DeathScreen = GameObject.Find("DeathScreen").transform.GetChild(0).gameObject;
 		respawnScreen = GameObject.Find("RespawnScreen").transform.GetChild(0).gameObject;
+		crashSound = GameObject.Find("CrashSound").GetComponent<AudioSource>();
 	}
     void OnCollisionEnter(Collision collision)
 	{
 		if (collision.gameObject.transform.tag == "Obstacle")
 		{
-		
+			crashSound.Play();
 			PlayerPrefs.SetInt("coinScore", PlayerPrefs.GetInt("coinScore") + Playermovement.NumOfCoins);
 			PlayerPrefs.SetInt("score", Score.pScore);
 			int randNum = Random.Range(1, 5);

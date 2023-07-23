@@ -13973,6 +13973,13 @@ struct TextGenerator_t6B84DC798596D3A9944DC346DD453C075EE62366  : public Runtime
 	int32_t ___m_RecursiveCount_102;
 };
 
+// AdController
+struct AdController_tBEDBF85880B1AA07634038B0FF32188C6ED968F5  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
+{
+	// UnityEngine.GameObject AdController::ad
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___ad_4;
+};
+
 // AdsInitializer
 struct AdsInitializer_t7B4CECD0F535D174CC6674026CCE6DFAB34DBDF2  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -14216,6 +14223,8 @@ struct CollisionDetection_tC285F684743B092C09228441D8EC876B28E771ED  : public Mo
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___DeathScreen_6;
 	// UnityEngine.GameObject CollisionDetection::respawnScreen
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___respawnScreen_7;
+	// UnityEngine.AudioSource CollisionDetection::crashSound
+	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___crashSound_8;
 };
 
 // UnityEngine.Advertisements.Utilities.CoroutineExecutor
@@ -20701,6 +20710,10 @@ struct TextGenerator_t6B84DC798596D3A9944DC346DD453C075EE62366_StaticFields
 
 // UnityEngine.TextCore.Text.TextGenerator
 
+// AdController
+
+// AdController
+
 // AdsInitializer
 
 // AdsInitializer
@@ -21597,6 +21610,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable6129[13] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable6132[1] = 
 {
 	static_cast<int32_t>(offsetof(U3CPrivateImplementationDetailsU3E_t3A51899FBAA581553000230A6A0F92898553245F_StaticFields, ___1C3635C112D556F4C11A4FE6BDE6ED3F126C4B2B546811BDB64DE7BDED3A05CB_0)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable6134[1] = 
+{
+	static_cast<int32_t>(offsetof(AdController_tBEDBF85880B1AA07634038B0FF32188C6ED968F5, ___ad_4)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable6135[4] = 
 {
 	static_cast<int32_t>(offsetof(AdsInitializer_t7B4CECD0F535D174CC6674026CCE6DFAB34DBDF2, ____androidGameId_4)),static_cast<int32_t>(offsetof(AdsInitializer_t7B4CECD0F535D174CC6674026CCE6DFAB34DBDF2, ____iOSGameId_5)),static_cast<int32_t>(offsetof(AdsInitializer_t7B4CECD0F535D174CC6674026CCE6DFAB34DBDF2, ____testMode_6)),static_cast<int32_t>(offsetof(AdsInitializer_t7B4CECD0F535D174CC6674026CCE6DFAB34DBDF2, ____gameId_7)),};
@@ -21918,9 +21934,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable6245[4] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable6260[1] = 
 {
 	static_cast<int32_t>(offsetof(CoinScore_t53E0ABD9CA26D1699B6B08BD855E54FC95E7A313, ___Coins_4)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable6261[4] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable6261[5] = 
 {
-	static_cast<int32_t>(offsetof(CollisionDetection_tC285F684743B092C09228441D8EC876B28E771ED, ___hasRespawned_4)),static_cast<int32_t>(offsetof(CollisionDetection_tC285F684743B092C09228441D8EC876B28E771ED, ___playermovement_5)),static_cast<int32_t>(offsetof(CollisionDetection_tC285F684743B092C09228441D8EC876B28E771ED, ___DeathScreen_6)),static_cast<int32_t>(offsetof(CollisionDetection_tC285F684743B092C09228441D8EC876B28E771ED, ___respawnScreen_7)),};
+	static_cast<int32_t>(offsetof(CollisionDetection_tC285F684743B092C09228441D8EC876B28E771ED, ___hasRespawned_4)),static_cast<int32_t>(offsetof(CollisionDetection_tC285F684743B092C09228441D8EC876B28E771ED, ___playermovement_5)),static_cast<int32_t>(offsetof(CollisionDetection_tC285F684743B092C09228441D8EC876B28E771ED, ___DeathScreen_6)),static_cast<int32_t>(offsetof(CollisionDetection_tC285F684743B092C09228441D8EC876B28E771ED, ___respawnScreen_7)),static_cast<int32_t>(offsetof(CollisionDetection_tC285F684743B092C09228441D8EC876B28E771ED, ___crashSound_8)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable6262[2] = 
 {
 	static_cast<int32_t>(offsetof(followPlayer_tAC08DAB77CF34BD73EFD6344C2EDD374207C9A42, ___offset_4)),static_cast<int32_t>(offsetof(followPlayer_tAC08DAB77CF34BD73EFD6344C2EDD374207C9A42, ___smoothSpeed_5)),};

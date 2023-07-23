@@ -20671,6 +20671,8 @@ struct TilemapRenderer_t1A45FD335E86172CFBB77D657E1D6705A477A6CB  : public Rende
 // AdController
 struct AdController_tBEDBF85880B1AA07634038B0FF32188C6ED968F5  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
+	// UnityEngine.GameObject AdController::ad
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___ad_4;
 };
 
 // AdsInitializer
@@ -20931,6 +20933,8 @@ struct CollisionDetection_tC285F684743B092C09228441D8EC876B28E771ED  : public Mo
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___DeathScreen_6;
 	// UnityEngine.GameObject CollisionDetection::respawnScreen
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___respawnScreen_7;
+	// UnityEngine.AudioSource CollisionDetection::crashSound
+	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___crashSound_8;
 };
 
 // Collision_new
