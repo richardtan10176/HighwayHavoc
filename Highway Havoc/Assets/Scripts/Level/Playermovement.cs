@@ -4,7 +4,7 @@ using UnityEngine;
 public class Playermovement : MonoBehaviour
 {
 	private CharacterController ch;
-	public float forwardSpeed = 8;
+	public float forwardSpeed = 4;
 	public bool playerMove = true;
 
 	public float maxSpeed = 40f;
@@ -100,7 +100,7 @@ public class Playermovement : MonoBehaviour
 			velocity.z = forwardSpeed;
 			if (forwardSpeed < maxSpeed)
 			{
-				forwardSpeed += .01f;
+				forwardSpeed += .005f;
 			}
 			
 
