@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.046110306, g: 0.40010637, b: 2.459229, a: 1}
+  m_IndirectSpecularColor: {r: 0.046005763, g: 0.39996383, b: 2.459266, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3080,7 +3080,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _androidGameId: 5354643
   _iOSGameId: 5354642
-  _testMode: 1
+  _testMode: 0
 --- !u!1 &1929154412
 GameObject:
   m_ObjectHideFlags: 0

@@ -1657,7 +1657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _androidGameId: 5354643
   _iOSGameId: 5354642
-  _testMode: 1
+  _testMode: 0
 --- !u!1 &263336282
 GameObject:
   m_ObjectHideFlags: 0
