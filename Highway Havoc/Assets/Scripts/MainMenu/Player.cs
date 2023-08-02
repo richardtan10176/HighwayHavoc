@@ -14,6 +14,14 @@ public class Player : MonoBehaviour
     public int car5 = 0;
     public int car6 = 0;
     public int car7 = 0;
+    public int car8 = 0;
+    public int car9 = 0;
+    public int car10 = 0;
+    public int car11 = 0;
+    public int car12 = 0;
+    public int car13 = 0;
+    public int car14 = 0;
+    public int car15 = 0;
 
     public GameObject gemsObj;
     public GameObject coinsObj;

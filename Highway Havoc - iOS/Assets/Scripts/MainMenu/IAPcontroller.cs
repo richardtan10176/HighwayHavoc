@@ -17,6 +17,7 @@ public class IAPcontroller : MonoBehaviour
         PlayerData temp = SaveSystem.LoadPlayer();
         mainPlayer.gems = temp.gems;
         mainPlayer.coins = temp.coins;
+
         mainPlayer.car1 = temp.car1;
         mainPlayer.car2 = temp.car2;
         mainPlayer.car3 = temp.car3;
@@ -24,7 +25,16 @@ public class IAPcontroller : MonoBehaviour
         mainPlayer.car5 = temp.car5;
         mainPlayer.car6 = temp.car6;
         mainPlayer.car7 = temp.car7;
-        
+        mainPlayer.car8 = temp.car8;
+        mainPlayer.car9 = temp.car9;
+        mainPlayer.car10 = temp.car10;
+        mainPlayer.car11 = temp.car11;
+        mainPlayer.car12 = temp.car12;
+        mainPlayer.car13 = temp.car13;
+        mainPlayer.car14 = temp.car14;
+        mainPlayer.car15 = temp.car15;
+
+
     }
 
     public void OnPurchaseComplete(Product product)

@@ -10,8 +10,6 @@ public class loadPlayerData : MonoBehaviour
     PlayerData loadedData;
     void Start()
     {
-        Application.targetFrameRate = 60;
-
         loadedData = SaveSystem.LoadPlayer();
         gemsAmount = loadedData.gems;
     }
