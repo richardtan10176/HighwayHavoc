@@ -240,6 +240,10 @@ struct AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354;
 struct AnimationTriggers_tA0DC06F89C5280C6DD972F6F4C8A56D7F4F79074;
 // System.AsyncCallback
 struct AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C;
+// UnityEngine.AudioClip
+struct AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20;
+// UnityEngine.Audio.AudioMixerGroup
+struct AudioMixerGroup_tD29AC8336F7425DF007944F8195CEABF34FC3311;
 // UnityEngine.AudioSource
 struct AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299;
 // UnityEngine.Advertisements.BannerLoadOptions
@@ -386,6 +390,8 @@ struct ShowRewardedAds_t177342027FE7420A2EA48C42FEE0D553F76BF0BA;
 struct SimpleScript_t2024C71CEB7376A61970D719F7476FCEB3390DBF;
 // TMPro.Examples.SkewTextExample
 struct SkewTextExample_t23E1D8362105119C600703D984514C02617441D1;
+// Sound
+struct Sound_t06FB644265ECCFDDC2E12D87F6111B3760FC17A0;
 // UnityEngine.Sprite
 struct Sprite_tAFF74BC83CD68037494CB0B4F28CBDF8971CAB99;
 // StoreMenuController
@@ -881,6 +887,25 @@ struct MemberInfo_t  : public RuntimeObject
 // TMPro.ShaderUtilities
 struct ShaderUtilities_t9BE0345DF949745FC0EB9A1119E204F2F129298F  : public RuntimeObject
 {
+};
+
+// Sound
+struct Sound_t06FB644265ECCFDDC2E12D87F6111B3760FC17A0  : public RuntimeObject
+{
+	// System.String Sound::name
+	String_t* ___name_0;
+	// UnityEngine.AudioClip Sound::clip
+	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___clip_1;
+	// UnityEngine.Audio.AudioMixerGroup Sound::mixer
+	AudioMixerGroup_tD29AC8336F7425DF007944F8195CEABF34FC3311* ___mixer_2;
+	// System.Single Sound::volume
+	float ___volume_3;
+	// System.Single Sound::pitch
+	float ___pitch_4;
+	// System.Boolean Sound::loop
+	bool ___loop_5;
+	// UnityEngine.AudioSource Sound::source
+	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___source_6;
 };
 
 // System.String
@@ -5379,6 +5404,10 @@ struct ShaderUtilities_t9BE0345DF949745FC0EB9A1119E204F2F129298F_StaticFields
 
 // TMPro.ShaderUtilities
 
+// Sound
+
+// Sound
+
 // System.String
 struct String_t_StaticFields
 {
@@ -9457,6 +9486,26 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShowRewardedAds__ctor_m1A49BEB6E0B65F852
 		__this->____iOSAdUnitId_6 = _stringLiteral7448DA4EC902B839EDD3A227224DAD14507F22B5;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____iOSAdUnitId_6), (void*)_stringLiteral7448DA4EC902B839EDD3A227224DAD14507F22B5);
 		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void Sound::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Sound__ctor_m5DD7C9F71B98D5670BBDD05F6D6FCDF43DC9EA8F (Sound_t06FB644265ECCFDDC2E12D87F6111B3760FC17A0* __this, const RuntimeMethod* method) 
+{
+	{
+		// public float volume = 1;
+		__this->___volume_3 = (1.0f);
+		// public float pitch = 1;
+		__this->___pitch_4 = (1.0f);
+		Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2(__this, NULL);
 		return;
 	}
 }
