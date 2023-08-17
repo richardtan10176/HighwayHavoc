@@ -25,7 +25,7 @@ public class SpawnPlayerCar : MonoBehaviour
         playerCar.GetComponent<CharacterController>().minMoveDistance = 0.001f;
         playerCar.GetComponent<CharacterController>().center = new Vector3(0, 1.5f, 0);
         playerCar.GetComponent<CharacterController>().radius = 0.04f;
-        playerCar.GetComponent<CharacterController>().height = 4.83f;
+        playerCar.GetComponent<CharacterController>().height = 4.5f;
 
         playerCar.AddComponent<BoxCollider>();
         playerCar.GetComponent<BoxCollider>().center = new Vector3(0, 0, 0.1f);

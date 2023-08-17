@@ -8,10 +8,10 @@ public class CoinScore : MonoBehaviour
 {
     //public Transform player;
     TextMeshProUGUI Coins;
-
     void Start()
     {
-        Coins = GameObject.Find("Coins").GetComponent<TextMeshProUGUI>();   
+        Coins = GameObject.Find("Coins").GetComponent<TextMeshProUGUI>();
+		
     }
 
     // Update is called once per frame
@@ -20,6 +20,7 @@ public class CoinScore : MonoBehaviour
 		if (other.tag == "Coin")
 		{
 			Playermovement.NumOfCoins += 1;
+			AudioManager.instance.Play("Coins");
 			Destroy(other.gameObject);
 			Coins.text = Playermovement.NumOfCoins.ToString();
 		}
