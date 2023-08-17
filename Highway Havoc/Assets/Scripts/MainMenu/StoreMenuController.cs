@@ -505,6 +505,7 @@ public class StoreMenuController : MonoBehaviour
                 car11select.SetActive(false);
                 car12select.SetActive(false);
                 car13select.SetActive(false);
+  
                 car14select.SetActive(false);
                 car15select.SetActive(false);
                 car16select.SetActive(false);
