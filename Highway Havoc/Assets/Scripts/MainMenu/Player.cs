@@ -31,6 +31,8 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        PlayerPrefs.DeleteAll();
+
         gemsText = gemsObj.GetComponent<TextMeshProUGUI>();
         coinsText = coinsObj.GetComponent<TextMeshProUGUI>();
 
