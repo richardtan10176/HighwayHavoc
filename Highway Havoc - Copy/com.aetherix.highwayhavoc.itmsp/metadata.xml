@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<package version="software5.7" xmlns="http://apple.com/itunes/importer">
+  <provider>7PXZ7R4AS4</provider>
+  <team_id>7PXZ7R4AS4</team_id>
+  <software>
+    <vendor_id>com.aetherix.highwayhavoc</vendor_id>
+    <software_metadata>
+      <in_app_purchases>
+        <in_app_purchase>
+          <product_id>com.aetherix.highwayhavoc.100gems</product_id>
+          <reference_name>com.aetherix.highwayhavoc.100gems</reference_name>
+          <type>consumable</type>
+          <products>
+            <product>
+              <cleared_for_sale>true</cleared_for_sale>
+              <wholesale_price_tier>2</wholesale_price_tier>
+            </product>
+          </products>
+          <locales>
+            <locale name="en-US">
+              <title>100 Gems</title>
+              <description>Gives user 100 Gems to purchase premium items</description>
+            </locale>
+          </locales>
+          <review_screenshot>
+            <file_name>Capture.PNG</file_name>
+            <size>21059</size>
+            <checksum>06cddc2982cdd627948faea0446d4dae</checksum>
+          </review_screenshot>
+        </in_app_purchase>
+        <in_app_purchase>
+          <product_id>com.aetherix.highwayhavoc.500gems</product_id>
+          <reference_name>com.aetherix.highwayhavoc.500gems</reference_name>
+          <type>consumable</type>
+          <products>
+            <product>
+              <cleared_for_sale>true</cleared_for_sale>
+              <wholesale_price_tier>8</wholesale_price_tier>
+            </product>
+          </products>
+          <locales>
+            <locale name="en-US">
+              <title>500 Gems</title>
+              <description>Gives user 500 Gems to purchase premium items</description>
+            </locale>
+          </locales>
+          <review_screenshot>
+            <file_name>Capture.PNG</file_name>
+            <size>21059</size>
+            <checksum>06cddc2982cdd627948faea0446d4dae</checksum>
+          </review_screenshot>
+        </in_app_purchase>
+        <in_app_purchase>
+          <product_id>com.aetherix.highwayhavoc.1000gems</product_id>
+          <reference_name>com.aetherix.highwayhavoc.1000gems</reference_name>
+          <type>consumable</type>
+          <products>
+            <product>
+              <cleared_for_sale>true</cleared_for_sale>
+              <wholesale_price_tier>16</wholesale_price_tier>
+            </product>
+          </products>
+          <locales>
+            <locale name="en-US">
+              <title>1000 Gems</title>
+              <description>Gives user 1000 Gems to purchase premium items</description>
+            </locale>
+          </locales>
+          <review_screenshot>
+            <file_name>Capture.PNG</file_name>
+            <size>21059</size>
+            <checksum>06cddc2982cdd627948faea0446d4dae</checksum>
+          </review_screenshot>
+        </in_app_purchase>
+      </in_app_purchases>
+    </software_metadata>
+  </software>
+</package>
