@@ -157,6 +157,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.Aetherix.HighwayHavoc
     Standalone: com.Aetherix.Highway-Havoc
+    iPhone: com.Aetherix.Highway-Havoc
   buildNumber:
     Standalone: 0
     iPhone: 0
