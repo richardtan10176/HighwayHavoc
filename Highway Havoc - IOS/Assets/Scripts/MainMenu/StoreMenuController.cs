@@ -11,7 +11,7 @@ public class StoreMenuController : MonoBehaviour
 {
     public Button button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16; //cars
     public Button returnToMainMenu;
-    public Button goToGemStore;
+    //public Button goToGemStore;
     public Button goToCoinStore;
     public Button goToCarStore;
 
@@ -29,7 +29,7 @@ public class StoreMenuController : MonoBehaviour
 
     public GameObject highScoreTxt;
 
-    public GameObject mainMenu, CarStore, gemStore, coinStore;
+    public GameObject mainMenu, CarStore,  coinStore;
     public GameObject car1select, car2select, car3select, car4select, car5select, car6select, car7select, car8select, car9select, car10select, car11select, car12select, car13select, car14select, car15select, car16select;
     public GameObject carParent;
 
@@ -128,8 +128,8 @@ public class StoreMenuController : MonoBehaviour
         button16.onClick.AddListener(activateCar16);
 
         returnToMainMenu.onClick.AddListener(returnToMenu);
-        goToGemStore.onClick.AddListener(openGemMenu);
-        goToCoinStore.onClick.AddListener(openCoinMenu);
+        //goToGemStore.onClick.AddListener(openGemMenu);
+        //goToCoinStore.onClick.AddListener(openCoinMenu);
         goToCarStore.onClick.AddListener(openCarMenu);
 
 
@@ -830,7 +830,7 @@ public class StoreMenuController : MonoBehaviour
                 PlayerPrefs.Save();
             }
             click.Play();
-            gemStore.SetActive(false);
+            //gemStore.SetActive(false);
             coinStore.SetActive(false);
             CarStore.SetActive(false);
 
@@ -845,14 +845,14 @@ public class StoreMenuController : MonoBehaviour
             CarStore.SetActive(false);
             closePopupGem();
 
-            gemStore.SetActive(true);
+            //gemStore.SetActive(true);
             returnToMainMenu.transform.parent.gameObject.SetActive(true);
         }
         void openCoinMenu()
         {
             click.Play();
             mainMenu.SetActive(false);
-            gemStore.SetActive(false);
+            //gemStore.SetActive(false);
             CarStore.SetActive(false);
 
             coinStore.SetActive(true);
@@ -863,7 +863,7 @@ public class StoreMenuController : MonoBehaviour
             click.Play();
             mainMenu.SetActive(false);
             coinStore.SetActive(false);
-            gemStore.SetActive(false);
+            //gemStore.SetActive(false);
 
             CarStore.SetActive(true);
             returnToMainMenu.transform.parent.gameObject.SetActive(true);

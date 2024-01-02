@@ -37,7 +37,7 @@ public class CollisionDetection : MonoBehaviour
 
 			if(randNum == 3 && !hasRespawned)
             {
-				respawnScreen.SetActive(true);
+				respawnScreen.SetActive(false);
             }
 
 			
