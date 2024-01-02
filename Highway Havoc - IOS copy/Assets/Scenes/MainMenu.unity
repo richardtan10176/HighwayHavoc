@@ -8314,7 +8314,6 @@ MonoBehaviour:
   button15: {fileID: 203563804}
   button16: {fileID: 133399860}
   returnToMainMenu: {fileID: 2118604527}
-  goToGemStore: {fileID: 552785550}
   goToCoinStore: {fileID: 0}
   goToCarStore: {fileID: 2518695613557086364}
   clickSource: {fileID: 750674306}
@@ -8326,7 +8325,6 @@ MonoBehaviour:
   highScoreTxt: {fileID: 1832952248}
   mainMenu: {fileID: 1090899878259767205}
   CarStore: {fileID: 1901342891}
-  gemStore: {fileID: 0}
   coinStore: {fileID: 206218135}
   car1select: {fileID: 943169406}
   car2select: {fileID: 1339698033}
@@ -8498,7 +8496,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d5b13cc2727b5341a0c0f9dac7edc51, type: 3}
   m_Name: 
