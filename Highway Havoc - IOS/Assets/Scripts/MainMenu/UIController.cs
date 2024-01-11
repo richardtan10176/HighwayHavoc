@@ -28,7 +28,7 @@ public class UIController : MonoBehaviour
 
     void retry()
     {
-        //PlayerPrefs.SetInt("coinScore", PlayerPrefs.GetInt("coinScore") + Playermovement.NumOfCoins);
+        PlayerPrefs.SetInt("coinScore", PlayerPrefs.GetInt("coinScore") + Playermovement.NumOfCoins);
         if(PlayerPrefs.GetInt("score") > PlayerPrefs.GetInt("highScore"))
         {
             PlayerPrefs.SetInt("highScore", PlayerPrefs.GetInt("score"));
@@ -39,6 +39,13 @@ public class UIController : MonoBehaviour
     void returnToMenu()
     {
         //showbannerad.HideBannerAd();
+
+        PlayerPrefs.SetInt("coinScore", Playermovement.NumOfCoins);
+        PlayerPrefs.SetInt("phighScore", Score.pScore);
+
+        Debug.Log(PlayerPrefs.GetInt("highScore"));
+        Debug.Log(PlayerPrefs.GetInt("coinScore"));
+
 
         DeathScreen.SetActive(false);
         RespawnScreen.SetActive(false);

@@ -8393,6 +8393,8 @@ MonoBehaviour:
   car15: 0
   gemsObj: {fileID: 263336282}
   coinsObj: {fileID: 162504934}
+  gemsText: {fileID: 0}
+  coinsText: {fileID: 162504936}
 --- !u!82 &963194232
 AudioSource:
   m_ObjectHideFlags: 0
@@ -16558,7 +16560,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2069408389}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.4442728, y: 1.2295002, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

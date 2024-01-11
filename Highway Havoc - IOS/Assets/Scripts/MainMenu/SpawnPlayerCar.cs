@@ -10,7 +10,8 @@ public class SpawnPlayerCar : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        playerCar = Instantiate(cars[PlayerPrefs.GetInt("playerCar") - 1]);
+        //playerCar = Instantiate(cars[PlayerPrefs.GetInt("playerCar") - 1]);
+        playerCar = Instantiate(cars[0]);
         playerCar.name = "playerCar";
         playerCar.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
 

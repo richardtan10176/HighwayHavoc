@@ -20,7 +20,9 @@ public class CoinScore : MonoBehaviour
 		if (other.tag == "Coin")
 		{
 			Playermovement.NumOfCoins += 1;
-			AudioManager.instance.Play("Coins");
+			//AudioManager.instance.Play("Coins");
+			//other.GetComponent<AudioSource>().Play();
+			//GetComponent<AudioSource>().Play();
 			Destroy(other.gameObject);
 			Coins.text = Playermovement.NumOfCoins.ToString();
 		}

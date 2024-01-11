@@ -26,8 +26,9 @@ public class Player : MonoBehaviour
     public GameObject gemsObj;
     public GameObject coinsObj;
 
-    public static TextMeshProUGUI gemsText;
-    public static TextMeshProUGUI coinsText;
+
+    [SerializeField] public TextMeshProUGUI gemsText;
+    [SerializeField] public TextMeshProUGUI coinsText;
 
     private void Awake()
     {
@@ -60,7 +61,7 @@ public class Player : MonoBehaviour
     {
         coins += amount;
         Save();
-        coinsText.text = coins.ToString();
+        //coinsText.text = coins.ToString();
     }
     public void removeGems(int amount)
     {
@@ -72,6 +73,6 @@ public class Player : MonoBehaviour
     {
         coins -= amount;
         Save();
-        coinsText.text = coins.ToString();
+        //coinsText.text = coins.ToString();
     }
 }

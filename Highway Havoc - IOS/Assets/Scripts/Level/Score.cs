@@ -16,7 +16,9 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         score.text =  player.position.z.ToString("0");
         pScore = (int) player.position.z;
     }
 }
+

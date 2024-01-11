@@ -59,19 +59,26 @@ public class StoreMenuController : MonoBehaviour
         success = successSource.GetComponent<AudioSource>();
         Application.targetFrameRate = 90;
 
+        Debug.Log(PlayerPrefs.GetInt("phighScore"));
+        Debug.Log(PlayerPrefs.GetInt("coinScore"));
 
-
+        IAPcontroller.mainPlayer.addCoins(PlayerPrefs.GetInt("coinScore"));
+        if (Int32.Parse(highScoreTxt.GetComponent<TextMeshProUGUI>().text) < PlayerPrefs.GetInt("phighScore")){
+            highScoreTxt.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("phighScore").ToString();
+        }
+        
     }
-    // Start is called before the first frame update
+    // Start is called before the first frame update    
     void Start()
     {
         //PlayerPrefs.DeleteAll();
 
 
 
-        IAPcontroller.mainPlayer.removeGems(PlayerPrefs.GetInt("gemsOwed"));
-        PlayerPrefs.SetInt("gemsOwed", 0);
+        // IAPcontroller.mainPlayer.removeGems(PlayerPrefs.GetInt("gemsOwed"));
+        //PlayerPrefs.SetInt("gemsOwed", 0);
 
+        /*
         IAPcontroller.mainPlayer.addCoins(PlayerPrefs.GetInt("coinScore"));
         PlayerPrefs.SetInt("coinScore", 0);
 
@@ -85,7 +92,8 @@ public class StoreMenuController : MonoBehaviour
         {
             highScoreTxt.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("highScore").ToString();
         }
-
+        */
+        /*
         if (!PlayerPrefs.HasKey("firsttime")) //first time in game
         {
             PlayerPrefs.SetInt("firsttime", 0);
@@ -105,6 +113,7 @@ public class StoreMenuController : MonoBehaviour
             carParent.transform.GetChild(PlayerPrefs.GetInt("playerCar") - 1).GetChild(4).gameObject.SetActive(true);
         }
 
+        */
         StartCoroutine(LateStart(0.1f));
 
 
