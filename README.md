@@ -12,8 +12,6 @@
 Swipe left or right to avoid incoming cars. The longer you survive, the faster the cars move, and the more vehicles you'll encounter. Try to beat your high score every time you play!
 
 
-## Gameplay GIF
-![Highway Havoc in Action](./highway_havoc.gif)
 
 
 ## How to Play
